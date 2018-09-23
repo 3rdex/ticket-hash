@@ -22,13 +22,13 @@ export class EOSService {
     return {rows, more};
   }
 
-  static async releaseTicket(hash, ticket_name, seller) {
+  static async releaseTicket({hash, ticket_name, seller}) {
     const contract = await EOSService.eos.contract('ticketticket');
-    await contract.buyticket({hash, ticket_name, seller}, {scope: 'seller', authorization: ['active']});
+    await contract.buyticket({hash, ticket_name, seller}, {scope: 'active', authorization: [seller]});
   }
 
-  static async checkTicket() {
+  static async checkTicket({hash , seller}) {
     const contract = await EOSService.eos.contract('ticketticket');
-    await contract.check({hash, seller}, {scope: 'seller', authorization: ['active']});
+    await contract.check({hash, seller}, {scope: 'active', authorization: [seller]});
   }
 }
