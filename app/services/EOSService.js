@@ -5,7 +5,7 @@ import eos from 'eosjs'
 const KEY = "5K7mtrinTFrVTduSxizUc5hjXJEtTjVTsqSHeBHes1Viep86FP5";
 const RPC_API_URL = "http://127.0.0.1:8888";
 
-export const passportMock = 'G509' + (Date.now() / 100) % 90000 + 10000;
+export const passportMock = 'G509' + Math.floor((Date.now() / 100) % 90000 + 10000);
 
 export class EOSService {
   static eos;
