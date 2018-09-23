@@ -9,6 +9,8 @@ import CheckoutScreen from "../screens/Checkout";
 import BookSuccessScreen from "../screens/BookSuccessScreen";
 import SelectionScreen from "../screens/SelectionScreen";
 import OrganizerHomeScreen from "../screens/OrganizerHomeScreen";
+import OrganizerScanScreen from "../screens/OrganizerScanScreen";
+import OrganizerVerifiedScreen from "../screens/OrganizerVerifiedScreen";
 
 const RootStack = createStackNavigator({
   Home: SelectionScreen,
@@ -16,7 +18,9 @@ const RootStack = createStackNavigator({
   HashInfo: HashInfoScreen,
   Checkout: CheckoutScreen,
   BookSuccess: BookSuccessScreen,
-  OrganizerHome: OrganizerHomeScreen
+  OrganizerHome: OrganizerHomeScreen,
+  OrganizerScan: OrganizerScanScreen,
+  OrganizerVerified: OrganizerVerifiedScreen
 });
 
 export default RootStack;
