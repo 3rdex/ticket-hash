@@ -1,16 +1,14 @@
 import React from "react";
 import {
   Image,
-  Platform,
   ScrollView,
   StyleSheet,
   Text,
   TouchableOpacity,
   View
 } from "react-native";
-import { WebBrowser, Icon, LinearGradient } from "expo";
+import { Icon } from "expo";
 
-import { MonoText } from "../components/StyledText";
 
 import Layout from "../constants/Layout";
 import EventCard from '../components/EventCard';
@@ -38,9 +36,6 @@ export default class HomeScreen extends React.Component {
   };
 
   render() {
-    const {
-      navigation: { navigate }
-    } = this.props;
     return (
       <View style={styles.container}>
         <View style={styles.filterContainer}>
@@ -58,7 +53,6 @@ export default class HomeScreen extends React.Component {
           <View
             style={{
               flex: 1,
-              position: "absolute",
               flexDirection: "row",
               justifyContent: "space-between",
               alignContent: "center"
@@ -66,7 +60,6 @@ export default class HomeScreen extends React.Component {
           >
             <View
               style={{
-                position: "absolute",
                 left: 24,
                 top: 100,
                 zIndex: 1,
@@ -92,7 +85,6 @@ export default class HomeScreen extends React.Component {
             </View>
             <View
               style={{
-                position: "absolute",
                 right: -24,
                 top: 100,
                 zIndex: 1,
@@ -243,11 +235,18 @@ export default class HomeScreen extends React.Component {
           style={styles.scrollContainer}
           contentContainerStyle={styles.contentContainer}
         >
-          <EventCard source={require("../assets/images/event_1.png")} date={'Oct 10, Saturday'}
-                     title={'Trade Pass: London Design Fair 2018'} price={'$12 - $25'}
-                     location={'3 South Place, London'}/>
-          <EventCard source={require("../assets/images/event_2.png")} date={'Sep 22, Saturday'}
-                     title={'EOS Hackathon London'} price={'$10'} location={'Kensington, London'}/>
+          <TouchableOpacity
+            onPress={() => this.props.navigation.navigate("EventDetail")}>
+            <EventCard source={require("../assets/images/event_1.png")} date={'Oct 10, Saturday'}
+                       title={'Trade Pass: London Design Fair 2018'} price={'$12 - $25'}
+                       location={'3 South Place, London'}/>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => this.props.navigation.navigate("EventDetail")}>
+            <EventCard source={require("../assets/images/event_2.png")} date={'Sep 22, Saturday'}
+                       title={'EOS Hackathon London'} price={'$10'} location={'Kensington, London'}/>
+          </TouchableOpacity>
+
         </ScrollView>
       </View>
     );
