@@ -1,6 +1,6 @@
 import React from "react";
 import {Image, StyleSheet, TouchableOpacity, View} from "react-native";
-import {EOSService} from '../services/EOSService';
+import {EOSService, passportMock} from '../services/EOSService';
 import {sha256} from 'js-sha256';
 
 const styles = StyleSheet.create({
@@ -43,7 +43,7 @@ export default class OrganizerScanScreen extends React.Component {
       navigation: {navigate}
     } = this.props;
     const name = 'TicketHash';
-    const passport = 'G12345678';
+    const passport = passportMock;
     const hash = sha256(name + ',' + passport);
     await EOSService.checkTicket({hash, seller: 'ticketsella1'});
     navigate("OrganizerVerified");

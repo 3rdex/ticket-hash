@@ -2,7 +2,7 @@ import React from "react";
 import {Image, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import Layout from "../constants/Layout";
 import {sha256} from 'js-sha256';
-import {EOSService} from '../services/EOSService';
+import {EOSService, passportMock} from '../services/EOSService';
 
 const styles = StyleSheet.create({
   container: {
@@ -55,7 +55,7 @@ export default class HashInfoScreen extends React.Component {
       navigation: {navigate}
     } = this.props;
     const name = 'TicketHash';
-    const passport = 'G12345678';
+    const passport = passportMock;
     const hash = sha256(name + ',' + passport);
     await EOSService.releaseTicket({hash, ticket_name: 'EOS London', seller: 'ticketsella1'})
     navigate("BookSuccess");

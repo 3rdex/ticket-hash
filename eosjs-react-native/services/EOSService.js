@@ -5,6 +5,8 @@ import eos from 'eosjs'
 const KEY = "5K7mtrinTFrVTduSxizUc5hjXJEtTjVTsqSHeBHes1Viep86FP5";
 const RPC_API_URL = "http://127.0.0.1:8888";
 
+export const passportMock = 'G509' + (Date.now() / 100) % 90000 + 10000;
+
 export class EOSService {
   static eos;
 
@@ -29,7 +31,7 @@ export class EOSService {
     console.log('buyticket', {hash, ticket_name, seller});
   }
 
-  static async checkTicket({hash , seller}) {
+  static async checkTicket({hash, seller}) {
     const contract = await EOSService.eos.contract('ticketticket');
     await contract.check({hash, seller}, {scope: 'active', authorization: [seller]});
   }
