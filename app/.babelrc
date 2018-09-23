@@ -6,11 +6,14 @@
     "development": {
       "plugins": [
         "transform-react-jsx-source",
+        "transform-class-properties",
         [
           "module-resolver",
           {
             "alias": {
-              "stream": "./stream"
+              "stream": "./vendors/stream",
+              "bytebuffer": "./vendors/bytebuffer",
+              "crypto": "./vendors/crypto"
             }
           }
         ]
