@@ -13,6 +13,7 @@ import { WebBrowser, Icon, LinearGradient } from "expo";
 import { MonoText } from "../components/StyledText";
 
 import Layout from "../constants/Layout";
+import EventCard from '../components/EventCard';
 
 const styles = StyleSheet.create({
   container: {
@@ -20,11 +21,20 @@ const styles = StyleSheet.create({
     backgroundColor: "rgb(247, 247, 247)"
   },
   filterContainer: {
+<<<<<<< HEAD
     position: "relative",
     height: 200,
     padding: 20,
     justifyContent: "center",
     alignItems: "center"
+=======
+    position: 'relative',
+    padding: 20,
+    height: 200
+  },
+  scrollContainer: {
+    padding: 12,
+>>>>>>> 808a04f868aa5050b5081c9870a3eb4d68e2021a
   }
 });
 
@@ -39,7 +49,7 @@ export default class HomeScreen extends React.Component {
     } = this.props;
     return (
       <View style={styles.container}>
-        <View style={styles.filterContianer}>
+        <View style={styles.filterContainer}>
           <Image
             style={{
               position: "absolute",
@@ -80,6 +90,7 @@ export default class HomeScreen extends React.Component {
               >
                 London
               </Text>
+<<<<<<< HEAD
               <Icon.Ionicons
                 name={"md-arrow-dropdown"}
                 size={16}
@@ -106,6 +117,14 @@ export default class HomeScreen extends React.Component {
                 }}
               >
                 My tickets
+=======
+              <Icon.Ionicons name={"md-arrow-dropdown"} size={16}/>
+            </View>
+            <View>
+              <Icon.Ionicons/>
+              <Text style={{ fontSize: 14, color: "white", lineHeight: 32 }}>
+                My Tickets
+>>>>>>> 808a04f868aa5050b5081c9870a3eb4d68e2021a
               </Text>
             </View>
           </View>
@@ -229,9 +248,12 @@ export default class HomeScreen extends React.Component {
           </View>
         </View>
         <ScrollView
-          style={styles.container}
+          style={styles.scrollContainer}
           contentContainerStyle={styles.contentContainer}
-        />
+        >
+          <EventCard/>
+          <EventCard/>
+        </ScrollView>
       </View>
     );
   }

@@ -110,6 +110,7 @@ export default class HashSuccessScreen extends React.Component {
             <Icon.Ionicons />
             <Text
               style={{
+                marginBottom: 8,
                 fontSize: 16,
                 lineHeight: 16,
                 color: "rgb(253, 253, 253)"
