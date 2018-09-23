@@ -33,6 +33,11 @@ const styles = StyleSheet.create({
     height: 183,
     marginTop: 72
   },
+  cancelImage: {
+    resizeMode: "contain",
+    width: 110,
+    height: 110
+  },
   eventInfoContainer: {
     zIndex: 2,
     marginTop: 160,
@@ -114,50 +119,16 @@ export default class OrganizerVerifiedScreen extends React.Component {
             <TouchableOpacity
               style={{
                 position: "absolute",
-                left: 32,
-                top: 545,
+                left: 5,
+                top: 525,
                 width: 48,
                 height: 48,
-                borderRadius: 30,
-                backgroundColor: "#fdfdfd",
-                shadowColor: "rgba(2, 21, 40, 0.04)",
-                shadowOffset: {
-                  width: 0,
-                  height: 1
-                },
-                shadowRadius: 1,
-                shadowOpacity: 1
-
               }}
             >
-              <LinearGradient
-                style={{
-                  width: 48,
-                  height: 48,
-                  borderRadius: 24,
-                  paddingLeft: 24,
-                  paddingRight: 24,
-                  flexDirection: "row",
-                  justifyContent: "space-between",
-                  alignItems: "center"
-                }}
-                colors={["#fdfdfd", "#fdfdfd"]}
-                start={[1, 1]}
-                end={[1, 0]}
-              >
-                <Text
-                  style={{
-                    fontSize: 16,
-                    lineHeight: 20,
-                    color: "#fdfdfd",
-                    textAlign: "center",
-                    width: 232,
-                    fontWeight: "500"
-                  }}
-                >
-                  Scan ID
-                </Text>
-              </LinearGradient>
+              <Image
+                source={require("../assets/images/cancel.png")}
+                style={styles.cancelImage}
+              />
             </TouchableOpacity>
 
             <TouchableOpacity
