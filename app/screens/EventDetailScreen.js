@@ -129,27 +129,26 @@ export default class EventDetailScreen extends React.Component {
           contentContainerStyle={styles.contentContainer}
         >
           <View style={styles.welcomeContainer}>
-            <Icon.Ionicons
-              name={"ios-arrow-back"}
-              size={26}
-              style={{ position: "absolute", left: 25.5, top: 0 }}
-              color={"white"}
-            />
-            {/* TODO: replace background image */}
             <Image
               source={require("../assets/images/event_details_header.png")}
               style={styles.welcomeImage}
             />
             <Icon.Ionicons
+              name={"ios-arrow-back"}
+              size={26}
+              style={{ position: "absolute", left: 25.5, top: 20 }}
+              color={"white"}
+            />
+            <Icon.Ionicons
               name={"ios-star"}
               size={26}
-              style={{ position: "absolute", top: 0, right: 62.5 }}
+              style={{ position: "absolute", top: 20, right: 80 }}
               color={"white"}
             />
             <Icon.Ionicons
               name={"md-share"}
               size={26}
-              style={{ position: "absolute", right: 25.5, top: 0 }}
+              style={{ position: "absolute", right: 24, top: 20 }}
               color={"white"}
             />
             <View style={styles.eventInfoContainer}>
