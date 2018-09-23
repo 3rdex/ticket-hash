@@ -1,63 +1,49 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
+import React from 'react';
+import {Platform, StatusBar, StyleSheet, View} from 'react-native';
+import RootStack from './navigation/RootStack';
+import {EOSService} from './services/EOSService';
 
-import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
-import {EOSService} from './EOSService.js'
-
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-  android:
-    'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
-
-export default class App extends Component {
-
-  state = {
-    'head_block_producer': 'Unloaded',
-    'chain_id': 'Unloaded'
-  }
-
-  async componentDidMount() {
-    EOSService.init();
-
-    await EOSService.checkTicket({hash: 'ASDFE', seller: 'ticketsella1'});
-    const res = await EOSService.getTableRows({seller: 'ticketsella1'});
-    console.log(res);
+export default class Index extends React.Component {
+  componentDidMount() {
+    EOSService.getTableRows({seller: 'ticketsella1'})
   }
 
   render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>EOSJS React-Native Example</Text>
-        <Text style={styles.instructions}>Head Block Producer: {this.state.head_block_producer}</Text>
-        <Text style={styles.instructions}>Chain Id {this.state.chain_id}</Text>
-      </View>
-    );
+    return <View style={styles.container}>
+      {/*{Platform.OS === 'ios' && <StatusBar barStyle="default"/>}*/}
+      {/*<RootStack/>*/}
+    </View>
   }
+
+  _loadResourcesAsync = async () => {
+    return Promise.all([
+      // Asset.loadAsync([
+      //   require('./assets/images/confirmation.png'),
+      //   require('./assets/images/event_1.png'),
+      //   require('./assets/images/event_2.png'),
+      //   require('./assets/images/event_3.png'),
+      //   require('./assets/images/event_details_header.png'),
+      //   require('./assets/images/G3.png'),
+      //   require('./assets/images/G2.png'),
+      //   require('./assets/images/G1.png'),
+      //   require('./assets/images/G0.png'),
+      //   require('./assets/images/homeHeader.png'),
+      //   require('./assets/images/map.png'),
+      // ]),
+      // Font.loadAsync({
+      //   // This is the font that we are using for our tab bar
+      //   ...Icon.Ionicons.font,
+      //   // We include SpaceMono because we use it in HomeScreen.js. Feel free
+      //   // to remove this if you are not using it in your app
+      //   'space-mono': require('./assets/fonts/SpaceMono-Regular.ttf'),
+      // }),
+    ]);
+  };
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+    backgroundColor: '#fff',
   },
 });
