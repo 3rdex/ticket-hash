@@ -166,7 +166,7 @@ export default class EventDetailScreen extends React.Component {
                 color: "rgba(8, 33, 59, 0.87)"
               }}
             >
-              EOS Hackathon London
+              EOS Hackathon LONDON
             </Text>
             <Text
               style={{
