@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     height: 48
   },
-  actionCacnel: {
+  actionCancel: {
     width: 110,
     height: 48,
     backgroundColor: "rgb(253, 253, 253)",
@@ -84,7 +84,10 @@ const styles = StyleSheet.create({
   actionNext: {
     width: 240,
     height: 48,
-    backgroundColor: "transparent"
+    backgroundColor: "transparent",
+    borderTopLeftRadius: 30,
+    borderBottomLeftRadius: 30,
+    overflow:'hidden',
   }
 });
 
@@ -153,16 +156,15 @@ export default class HashInfoScreen extends React.Component {
           />
         </View>
         <View style={styles.bottomActions}>
-          <TouchableOpacity style={styles.actionCacnel} onPress={() => navigate('Home')}>
+          <TouchableOpacity style={styles.actionCancel} onPress={() => navigate('Home')}>
             <Text style={{color: 'rgba(2, 21,40, 0.54)', fontSize: 16}}>Cancel</Text>
           </TouchableOpacity>
-          <TouchableOpacity 
+          <TouchableOpacity
           onPress={() => navigate('Checkout')}
           style={styles.actionNext}>
             <LinearGradient
               style={{
                 height: "100%",
-                width: "100%",
                 shadowColor: "rgba(137, 157, 179, 0.25)",
                 shadowOffset: {
                   width: 0,
@@ -170,10 +172,8 @@ export default class HashInfoScreen extends React.Component {
                 },
                 shadowOpacity: 1,
                 shadowRadius: 16,
-                borderTopLeftRadius: 30,
-                borderBottomLeftRadius: 30,
                 justifyContent: 'center',
-                alignItems: 'center'
+                alignItems: 'center',
               }}
               colors={["#ffbb87", "#ff6f83"]}
               start={[1, 1]}
