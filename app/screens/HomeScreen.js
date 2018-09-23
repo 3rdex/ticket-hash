@@ -17,7 +17,7 @@ import Layout from "../constants/Layout";
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff"
+    backgroundColor: "rgb(247, 247, 247)"
   },
   contentContainer: {
     paddingTop: 30
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginTop: 10,
     marginBottom: 20,
-    height: 300,
+    height: 300
   },
   welcomeImage: {
     position: "absolute",
@@ -58,9 +58,17 @@ const styles = StyleSheet.create({
     shadowRadius: 16
   },
   locationContainer: {
-    flexDirection: 'row',
-    alignItems: 'flex-end',
-    height: 204,
+    flexDirection: "row",
+    alignItems: "flex-end",
+    height: 204
+  },
+  tabContainer: {
+    marginTop: 24,
+    marginBottom: 24,
+    paddingLeft: 50,
+    paddingRight: 50,
+    flexDirection: "row",
+    justifyContent: "space-between"
   }
 });
 
@@ -172,21 +180,67 @@ export default class HomeScreen extends React.Component {
           </View>
 
           <View style={styles.locationContainer}>
-            <View style={{flex: 3, paddingLeft: 32}}>
-              <Text style={{
-                fontSize: 16, 
-                color: 'rgba(8, 33, 59, 0.87)', 
-                marginBottom: 2,
-                marginRight: 20,
-                }}>
-              London Science Museum</Text>
-              <Text style={{fontSize: 14, color: 'rgba(2, 21, 40, 0.54)'}}>
-              Exhibition Rd, Kensington, London SW7 2DD</Text>
+            <View style={{ flex: 3, paddingLeft: 32 }}>
+              <Text
+                style={{
+                  fontSize: 16,
+                  color: "rgba(8, 33, 59, 0.87)",
+                  marginBottom: 2,
+                  marginRight: 20
+                }}
+              >
+                London Science Museum
+              </Text>
+              <Text style={{ fontSize: 14, color: "rgba(2, 21, 40, 0.54)" }}>
+                Exhibition Rd, Kensington, London SW7 2DD
+              </Text>
             </View>
-            <Image 
-            source={require("../assets/images/robot-dev.png")} 
-            style={{flex: 2, height: 204}}
+            <Image
+              source={require("../assets/images/robot-dev.png")}
+              style={{ flex: 2, height: 204 }}
             />
+          </View>
+
+          <View style={styles.tabContainer}>
+            <View>
+              <Text
+                style={{
+                  fontSize: 14,
+                  color: "rgba(2, 21, 40, 0.34)"
+                }}
+              >
+                Detail
+              </Text>
+            </View>
+            <View>
+              <Text
+                style={{
+                  fontSize: 14,
+                  color: "rgba(2, 21, 40, 0.34)"
+                }}
+              >
+                Date & Time
+              </Text>
+            </View>
+            <View>
+              <Text
+                style={{
+                  fontSize: 14,
+                  color: "rgba(2, 21, 40, 0.34)"
+                }}
+              >
+                Location
+              </Text>
+            </View>
+          </View>
+          <View style={{ paddingLeft: 36, paddingRight: 36 }}>
+            <Text style={{ fontSize: 14, color: "rgba(8, 33, 59, 0.87)" }}>
+              The Hackathon Challenge will be released on the day of the event
+              to ensure a level playing field for all participating! In the mean
+              time, start getting familiar with documentation on the EOSIO
+              Developer Portal and get involved with the community through our
+              EOSIO social channels and Telegram groups.
+            </Text>
           </View>
         </ScrollView>
       </View>
