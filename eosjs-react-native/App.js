@@ -24,9 +24,12 @@ export default class App extends Component {
     'chain_id': 'Unloaded'
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     EOSService.init();
-    EOSService.getTableRows({seller: 'ticketsella1'});
+
+    await EOSService.checkTicket({hash: 'ASDFE', seller: 'ticketsella1'});
+    const res = await EOSService.getTableRows({seller: 'ticketsella1'});
+    console.log(res);
   }
 
   render() {
