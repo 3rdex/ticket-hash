@@ -1,16 +1,6 @@
 import React from "react";
-import {
-  Image,
-  Platform,
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View
-} from "react-native";
-import { WebBrowser, Icon, LinearGradient } from "expo";
-
-import { MonoText } from "../components/StyledText";
+import {ScrollView, StyleSheet, Text, TouchableOpacity, View} from "react-native";
+import LinearGradient from 'react-native-linear-gradient';
 
 import Layout from "../constants/Layout";
 
@@ -29,7 +19,7 @@ const styles = StyleSheet.create({
   },
   welcomeImage: {
     position: 'absolute',
-    left: 0, 
+    left: 0,
     top: 0,
     backgroundColor: "black",
     width: Layout.window.width,
@@ -41,7 +31,7 @@ const styles = StyleSheet.create({
     marginTop: 160,
     width: Layout.window.width - 32,
     height: 248,
-    marginLeft: 16, 
+    marginLeft: 16,
     marginRight: 16,
     backgroundColor: "white",
     justifyContent: "center",
