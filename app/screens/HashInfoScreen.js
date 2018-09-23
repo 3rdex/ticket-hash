@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
   }
 });
 
-export default class HomeScreen extends React.Component {
+export default class HashInfoScreen extends React.Component {
   static navigationOptions = {
     header: null
   };
@@ -118,7 +118,7 @@ export default class HomeScreen extends React.Component {
                   color: "rgba(8, 33, 59, 0.87)"
                 }}
               >
-                EOS Hackathon London
+                Hash Hash Hash
               </Text>
               <Text
                 style={{
@@ -132,7 +132,6 @@ export default class HomeScreen extends React.Component {
                 November 11 - November 11
               </Text>
               <TouchableOpacity
-              onPress={() => this.props.navigation.navigate('HashInfo')}
                 style={{
                   shadowColor: "rgba(137, 157, 179, 0.25)",
                   shadowOffset: {
