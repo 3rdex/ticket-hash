@@ -13,6 +13,7 @@ import { WebBrowser, Icon, LinearGradient } from "expo";
 import { MonoText } from "../components/StyledText";
 
 import Layout from "../constants/Layout";
+import EventCard from '../components/EventCard';
 
 const styles = StyleSheet.create({
   container: {
@@ -21,7 +22,11 @@ const styles = StyleSheet.create({
   },
   filterContainer: {
     position: 'relative',
-    padding: 20
+    padding: 20,
+    height: 200
+  },
+  scrollContainer: {
+    padding: 12,
   }
 });
 
@@ -36,7 +41,7 @@ export default class HomeScreen extends React.Component {
     } = this.props;
     return (
       <View style={styles.container}>
-        <View style={styles.filterContianer}>
+        <View style={styles.filterContainer}>
           <Image
             style={{
               position: "absolute",
@@ -54,10 +59,10 @@ export default class HomeScreen extends React.Component {
               <Text style={{ fontSize: 24, color: "white", lineHeight: 32 }}>
                 London
               </Text>
-              <Icon.Ionicons name={"md-arrow-dropdown"} size={16} />
+              <Icon.Ionicons name={"md-arrow-dropdown"} size={16}/>
             </View>
             <View>
-              <Icon.Ionicons />
+              <Icon.Ionicons/>
               <Text style={{ fontSize: 14, color: "white", lineHeight: 32 }}>
                 My Tickets
               </Text>
@@ -65,9 +70,12 @@ export default class HomeScreen extends React.Component {
           </View>
         </View>
         <ScrollView
-          style={styles.container}
+          style={styles.scrollContainer}
           contentContainerStyle={styles.contentContainer}
-        />
+        >
+          <EventCard/>
+          <EventCard/>
+        </ScrollView>
       </View>
     );
   }
