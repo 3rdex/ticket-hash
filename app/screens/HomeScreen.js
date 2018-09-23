@@ -73,8 +73,11 @@ export default class HomeScreen extends React.Component {
           style={styles.scrollContainer}
           contentContainerStyle={styles.contentContainer}
         >
-          <EventCard/>
-          <EventCard/>
+          <EventCard source={require("../assets/images/event_1.png")} date={'Oct 10, Saturday'}
+                     title={'Trade Pass: London Design Fair 2018'} price={'$12 - $25'}
+                     location={'3 South Place, London'}/>
+          <EventCard source={require("../assets/images/event_2.png")} date={'Sep 22, Saturday'}
+                     title={'EOS Hackathon London'} price={'$10'}  location={'Kensington, London'}/>
         </ScrollView>
       </View>
     );
