@@ -1,5 +1,6 @@
 import React from "react";
 import {Image, StyleSheet, Text, TouchableOpacity, View} from "react-native";
+import {Icon} from '../components/Icon';
 import LinearGradient from 'react-native-linear-gradient';
 import {Assets} from '../constants/Assets';
 
@@ -92,8 +93,8 @@ export default class HashSuccessScreen extends React.Component {
               alignItems: "center"
             }}
             colors={["#ffbb87", "#ff6f83"]}
-            start={{x:1, y:1}}
-            end={{x:0, y:0}}
+            start={{x: 1, y: 1}}
+            end={{x: 0, y: 0}}
           >
             <Icon.Ionicons/>
             <Text
