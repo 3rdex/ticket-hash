@@ -116,6 +116,7 @@ export default class OrganizerHomeScreen extends React.Component {
                   shadowOpacity: 1,
                   shadowRadius: 16
                 }}
+                onPress={()=>this.props.navigation.navigate("OrganizerScan")}
               >
                 <LinearGradient
                   style={{
