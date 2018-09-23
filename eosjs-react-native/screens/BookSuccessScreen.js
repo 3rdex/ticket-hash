@@ -1,6 +1,7 @@
 import React from "react";
 import {Image, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import LinearGradient from 'react-native-linear-gradient';
+import {Assets} from '../constants/Assets';
 
 const styles = StyleSheet.create({
   container: {
@@ -38,13 +39,13 @@ export default class HashSuccessScreen extends React.Component {
 
   render() {
     const {
-      navigation: { navigate }
+      navigation: {navigate}
     } = this.props;
     return (
       <View style={styles.container}>
         <Image
-          style={{ height: 160, width: 160 }}
-          source={require("../assets/images/confirmation.png")}
+          style={{height: 160, width: 160}}
+          source={Assets.confirm}
         />
         <Text
           style={{
@@ -69,7 +70,7 @@ export default class HashSuccessScreen extends React.Component {
         </Text>
         <TouchableOpacity
           onPress={() =>
-            navigate({ routeName: "Home", params: { showTicket: true } })
+            navigate({routeName: "Home", params: {showTicket: true}})
           }
           style={{
             marginTop: 36
@@ -94,7 +95,7 @@ export default class HashSuccessScreen extends React.Component {
             start={[1, 1]}
             end={[0, 0]}
           >
-            <Icon.Ionicons />
+            <Icon.Ionicons/>
             <Text
               style={{
                 fontSize: 16,

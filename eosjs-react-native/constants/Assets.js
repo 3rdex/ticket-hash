@@ -1,4 +1,4 @@
-export const Asset = {
+export const Assets = {
   confirm: require('./assets/images/confirmation.png'),
   event1: require('./assets/images/event_1.png'),
   event2: require('./assets/images/event_2.png'),
