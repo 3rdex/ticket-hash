@@ -1,16 +1,6 @@
 import React from "react";
-import {
-  Image,
-  Platform,
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View
-} from "react-native";
-import {WebBrowser, Icon, LinearGradient} from "expo";
-
-import {MonoText} from "../components/StyledText";
+import {Image, ScrollView, StyleSheet, Text, TouchableOpacity, View} from "react-native";
+import LinearGradient from 'react-native-linear-gradient'
 
 import Layout from "../constants/Layout";
 

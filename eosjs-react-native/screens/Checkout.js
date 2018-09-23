@@ -1,17 +1,5 @@
 import React from "react";
-import {
-  Image,
-  Platform,
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-  TextInput
-} from "react-native";
-import { WebBrowser, Icon, LinearGradient } from "expo";
-
-import { MonoText } from "../components/StyledText";
+import {Image, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 
 import Layout from "../constants/Layout";
 

@@ -1,19 +1,7 @@
 import React from "react";
-import {
-  Image,
-  Platform,
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-  TextInput
-} from "react-native";
-import { WebBrowser, Icon, LinearGradient } from "expo";
+import {Image, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 
-import { MonoText } from "../components/StyledText";
-
-import Layout from "../constants/Layout";
+import LinearGradient from 'react-native-linear-gradient';
 
 const styles = StyleSheet.create({
   container: {
@@ -51,12 +39,12 @@ export default class HashSuccessScreen extends React.Component {
 
   render() {
     const {
-      navigation: { navigate }
+      navigation: {navigate}
     } = this.props;
     return (
       <View style={styles.container}>
         <Image
-          style={{ height: 160, width: 160 }}
+          style={{height: 160, width: 160}}
           source={require("../assets/images/confirmation.png")}
         />
         <Text
@@ -82,7 +70,7 @@ export default class HashSuccessScreen extends React.Component {
         </Text>
         <TouchableOpacity
           onPress={() =>
-            navigate({ routeName: "Home", params: { showTicket: true } })
+            navigate({routeName: "Home", params: {showTicket: true}})
           }
           style={{
             marginTop: 36
@@ -107,7 +95,6 @@ export default class HashSuccessScreen extends React.Component {
             start={[1, 1]}
             end={[0, 0]}
           >
-            <Icon.Ionicons />
             <Text
               style={{
                 fontSize: 16,

@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
   View
 } from "react-native";
-import { Icon } from "expo";
+// import { Icon } from "expo";
 
 import EventCard from '../components/EventCard';
 
@@ -52,12 +52,12 @@ export default class HomeScreen extends React.Component {
               flex: 1, flexDirection: 'row'
             }}>
               <Text style={{ color: 'white', fontSize: 24, fontWeight: '700', marginRight: 12, }}>London</Text>
-              <Icon.Ionicons
+              {/* <Icon.Ionicons
                 name={"md-arrow-dropdown"}
                 size={20}
                 color={"white"}
                 style={{ marginTop: 8 }}
-              />
+              /> */}
             </View>
             <Text style={{ color: 'white', fontSize: 14, fontWeight: '700' }}>My Tickets</Text>
           </View>
@@ -110,10 +110,10 @@ export default class HomeScreen extends React.Component {
             >
               Any Date
             </Text>
-            <Icon.Ionicons
+            {/* <Icon.Ionicons
               name={"ios-arrow-down"}
               color="rgba(2, 21, 40, 0.54)"
-            />
+            /> */}
           </View>
 
           <View
@@ -141,10 +141,10 @@ export default class HomeScreen extends React.Component {
             >
               Any Category
             </Text>
-            <Icon.Ionicons
+            {/* <Icon.Ionicons
               name={"ios-arrow-down"}
               color="rgba(2, 21, 40, 0.54)"
-            />
+            /> */}
           </View>
 
           <View
@@ -173,10 +173,10 @@ export default class HomeScreen extends React.Component {
             >
               Any Price
             </Text>
-            <Icon.Ionicons
+            {/* <Icon.Ionicons
               name={"ios-arrow-down"}
               color="rgba(2, 21, 40, 0.54)"
-            />
+            /> */}
           </View>
         </View>
         <ScrollView
