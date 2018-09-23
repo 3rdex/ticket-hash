@@ -64,6 +64,110 @@ export default class HomeScreen extends React.Component {
             <Text style={{ color: 'white', fontSize: 14, fontWeight: '700' }}>My Tickets</Text>
           </View>
         </View>
+        <View
+          style={{
+            paddingLeft: 20,
+            height: 56,
+            backgroundColor: "#fdfdfd",
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "center"
+          }}
+        >
+          <View
+            style={{
+              width: 92,
+              height: 28,
+              borderRadius: 14,
+              backgroundColor: "#f8f7fa",
+              flexDirection: "row",
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}
+          >
+            <Text
+              style={{
+                fontSize: 12,
+                fontWeight: "900",
+                fontStyle: "normal",
+                letterSpacing: -0.2,
+                justifyContent: 'center',
+                alignItems: 'center',
+                marginRight: 8,
+                color: "rgba(2, 21, 40, 0.54)"
+              }}
+            >
+              Any Date
+            </Text>
+            <Icon.Ionicons
+              name={"ios-arrow-down"}
+              color="rgba(2, 21, 40, 0.54)"
+            />
+          </View>
+
+          <View
+            style={{
+              width: 92,
+              height: 28,
+              borderRadius: 14,
+              backgroundColor: "#f8f7fa",
+              flexDirection: "row",
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}
+          >
+            <Text
+              style={{
+                fontSize: 12,
+                fontWeight: "900",
+                fontStyle: "normal",
+                letterSpacing: -0.2,
+                justifyContent: 'center',
+                alignItems: 'center',
+                marginRight: 8,
+                color: "rgba(2, 21, 40, 0.54)"
+              }}
+            >
+              Any Category
+            </Text>
+            <Icon.Ionicons
+              name={"ios-arrow-down"}
+              color="rgba(2, 21, 40, 0.54)"
+            />
+          </View>
+
+          <View
+            style={{
+              width: 92,
+              height: 28,
+              borderRadius: 14,
+              backgroundColor: "#f8f7fa",
+              flexDirection: "row",
+              alignItems: 'center',
+              marginRight: 8,
+              justifyContent: 'center'
+            }}
+          >
+            <Text
+              style={{
+                fontSize: 12,
+                fontWeight: "900",
+                fontStyle: "normal",
+                letterSpacing: -0.2,
+                justifyContent: 'center',
+                alignItems: 'center',
+                marginRight: 8,
+                color: "rgba(2, 21, 40, 0.54)"
+              }}
+            >
+              Any Price
+            </Text>
+            <Icon.Ionicons
+              name={"ios-arrow-down"}
+              color="rgba(2, 21, 40, 0.54)"
+            />
+          </View>
+        </View>
         <ScrollView
           style={styles.scrollContainer}
           contentContainerStyle={styles.contentContainer}
