@@ -1,8 +1,5 @@
 import React from "react";
 import {Image, StyleSheet, Text, TouchableOpacity, View} from "react-native";
-
-export const Icon = {IonIcon: () => null};
-import LinearGradient from 'react-native-linear-gradient';
 import Layout from "../constants/Layout";
 
 const styles = StyleSheet.create({
