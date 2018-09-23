@@ -9,6 +9,7 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
 import {EOSService} from './EOSService.js'
+
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
   android:
@@ -16,23 +17,16 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 
-type Props = {};
-export default class App extends Component<Props> {
+export default class App extends Component {
 
   state = {
     'head_block_producer': 'Unloaded',
     'chain_id': 'Unloaded'
   }
 
-  componentDidMount(){
-    EOSService.init()
-    EOSService.get_table_rows()
-    EOSService.get_info().then(info => {
-      this.setState({
-        'head_block_producer': info['head_block_producer'],
-        'chain_id': info['chain_id']
-      })
-    });
+  componentDidMount() {
+    EOSService.init();
+    EOSService.getTableRows({seller: 'ticketsella1'});
   }
 
   render() {
