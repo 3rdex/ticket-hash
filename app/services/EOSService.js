@@ -1,24 +1,38 @@
-import '../shim.js'
+import './shim.js'
 
 import eos from 'eosjs'
 
-const KEY = "5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3";
-const RPC_API_URL = "http://167.99.181.173:8888";
+const KEY = "5K7mtrinTFrVTduSxizUc5hjXJEtTjVTsqSHeBHes1Viep86FP5";
+const RPC_API_URL = "http://127.0.0.1:8888";
 
-export function get_net(){
-  config = {
-    keyProvider: KEY, // WIF string or array of keys..
-    httpEndpoint: RPC_API_URL
+export const passportMock = 'G509' + (Date.now() / 100) % 90000 + 10000;
+
+export class EOSService {
+  static eos;
+
+  static init() {
+    const config = {
+      keyProvider: KEY, // WIF string or array of keys..
+      httpEndpoint: RPC_API_URL
+    };
+
+    EOSService.eos = eos(config);
   }
 
-  local_net = eos(config);
-  return local_net
-}
+  static async getTableRows({seller}) {
+    const {rows, more} = await EOSService.eos.getTableRows(true, 'ticketticket', seller, 'tickets');
+    console.log({rows})
+    return {rows, more};
+  }
 
+  static async releaseTicket({hash, ticket_name, seller}) {
+    const contract = await EOSService.eos.contract('ticketticket');
+    await contract.buyticket({hash, ticket_name, seller}, {scope: 'active', authorization: [seller]});
+    console.log('buyticket', {hash, ticket_name, seller});
+  }
 
-export function get_info(){
-  let net = get_net();
-  return net.getInfo({}).then(info => {
-    return info;
-  });
+  static async checkTicket({hash, seller}) {
+    const contract = await EOSService.eos.contract('ticketticket');
+    await contract.check({hash, seller}, {scope: 'active', authorization: [seller]});
+  }
 }

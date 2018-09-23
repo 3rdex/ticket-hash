@@ -1,17 +1,7 @@
 import React from "react";
-import {
-  Image,
-  Platform,
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View
-} from "react-native";
-import { WebBrowser, Icon, LinearGradient } from "expo";
-
-import { MonoText } from "../components/StyledText";
-
+import {Image, ScrollView, StyleSheet, Text, TouchableOpacity, View} from "react-native";
+import {Icon} from '../components/Icon';
+import LinearGradient from 'react-native-linear-gradient';
 import Layout from "../constants/Layout";
 
 const styles = StyleSheet.create({
@@ -203,8 +193,8 @@ export default class EventDetailScreen extends React.Component {
                   alignItems: "center"
                 }}
                 colors={["#ffbb87", "#ff6f83"]}
-                start={[1, 1]}
-                end={[0, 0]}
+                start={{x:1, y:1}}
+                end={{x:0, y:0}}
               >
                 <Text
                   style={{
@@ -296,39 +286,4 @@ export default class EventDetailScreen extends React.Component {
       </View>
     );
   }
-
-  _maybeRenderDevelopmentModeWarning() {
-    if (__DEV__) {
-      const learnMoreButton = (
-        <Text onPress={this._handleLearnMorePress} style={styles.helpLinkText}>
-          Learn more
-        </Text>
-      );
-
-      return (
-        <Text style={styles.developmentModeText}>
-          Development mode is enabled, your app will be slower but you can use
-          useful development tools. {learnMoreButton}
-        </Text>
-      );
-    } else {
-      return (
-        <Text style={styles.developmentModeText}>
-          You are not in development mode, your app will run at full speed.
-        </Text>
-      );
-    }
-  }
-
-  _handleLearnMorePress = () => {
-    WebBrowser.openBrowserAsync(
-      "https://docs.expo.io/versions/latest/guides/development-mode"
-    );
-  };
-
-  _handleHelpPress = () => {
-    WebBrowser.openBrowserAsync(
-      "https://docs.expo.io/versions/latest/guides/up-and-running.html#can-t-see-your-changes"
-    );
-  };
 }

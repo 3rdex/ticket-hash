@@ -1,18 +1,7 @@
 import React from "react";
-import {
-  Image,
-  Platform,
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View
-} from "react-native";
-import {WebBrowser, Icon, LinearGradient} from "expo";
-
-import {MonoText} from "../components/StyledText";
-
-import Layout from "../constants/Layout";
+import {Image, StyleSheet, TouchableOpacity, View} from "react-native";
+import {EOSService, passportMock} from '../services/EOSService';
+import {sha256} from 'js-sha256';
 
 const styles = StyleSheet.create({
   container: {
@@ -49,10 +38,21 @@ export default class OrganizerScanScreen extends React.Component {
     header: null
   };
 
+  async check() {
+    const {
+      navigation: {navigate}
+    } = this.props;
+    const name = 'TicketHash';
+    const passport = passportMock;
+    const hash = sha256(name + ',' + passport);
+    await EOSService.checkTicket({hash, seller: 'ticketsella1'});
+    navigate("OrganizerVerified");
+  }
+
   render() {
     return (
       <View style={styles.container}>
-        <TouchableOpacity style={styles.fullScreen} onPress={()=>this.props.navigation.navigate("OrganizerVerified")}>
+        <TouchableOpacity style={styles.fullScreen} onPress={() => this.check()}>
           <Image
             source={require("../assets/images/scan.png")}
             style={styles.welcomeImage}

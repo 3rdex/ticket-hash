@@ -1,16 +1,6 @@
 import React from "react";
-import {
-  Image,
-  Platform,
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View
-} from "react-native";
-import {WebBrowser, Icon, LinearGradient} from "expo";
-
-import {MonoText} from "../components/StyledText";
+import {Image, ScrollView, StyleSheet, Text, TouchableOpacity, View} from "react-native";
+import LinearGradient from 'react-native-linear-gradient';
 
 import Layout from "../constants/Layout";
 
@@ -159,8 +149,8 @@ export default class OrganizerVerifiedScreen extends React.Component {
                   alignItems: "center"
                 }}
                 colors={["#0a14ff", "#0a14ff"]}
-                start={[1, 1]}
-                end={[1, 0]}
+                start={{x:1, y:1}}
+                end={{x:1, y:0}}
               >
                 <Text
                   style={{

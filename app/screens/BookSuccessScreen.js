@@ -1,19 +1,9 @@
 import React from "react";
-import {
-  Image,
-  Platform,
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-  TextInput
-} from "react-native";
-import { WebBrowser, Icon, LinearGradient } from "expo";
-
-import { MonoText } from "../components/StyledText";
-
-import Layout from "../constants/Layout";
+import {Image, StyleSheet, Text, TouchableOpacity, View} from "react-native";
+import {Icon} from '../components/Icon';
+import LinearGradient from 'react-native-linear-gradient';
+import {Assets} from '../constants/Assets';
+import {EOSService} from '../services/EOSService';
 
 const styles = StyleSheet.create({
   container: {
@@ -49,15 +39,16 @@ export default class HashSuccessScreen extends React.Component {
     header: null
   };
 
+
   render() {
     const {
-      navigation: { navigate }
+      navigation: {navigate}
     } = this.props;
     return (
       <View style={styles.container}>
         <Image
-          style={{ height: 160, width: 160 }}
-          source={require("../assets/images/confirmation.png")}
+          style={{height: 160, width: 160}}
+          source={Assets.confirm}
         />
         <Text
           style={{
@@ -82,7 +73,7 @@ export default class HashSuccessScreen extends React.Component {
         </Text>
         <TouchableOpacity
           onPress={() =>
-            navigate({ routeName: "Home", params: { showTicket: true } })
+            navigate({routeName: "Home", params: {showTicket: true}})
           }
           style={{
             marginTop: 36
@@ -104,13 +95,12 @@ export default class HashSuccessScreen extends React.Component {
               alignItems: "center"
             }}
             colors={["#ffbb87", "#ff6f83"]}
-            start={[1, 1]}
-            end={[0, 0]}
+            start={{x: 1, y: 1}}
+            end={{x: 0, y: 0}}
           >
-            <Icon.Ionicons />
+            <Icon.Ionicons/>
             <Text
               style={{
-                marginBottom: 8,
                 fontSize: 16,
                 lineHeight: 16,
                 color: "rgb(253, 253, 253)"

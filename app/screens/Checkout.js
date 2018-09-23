@@ -1,19 +1,8 @@
 import React from "react";
-import {
-  Image,
-  Platform,
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-  TextInput
-} from "react-native";
-import { WebBrowser, Icon, LinearGradient } from "expo";
-
-import { MonoText } from "../components/StyledText";
-
+import {Image, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import Layout from "../constants/Layout";
+import {sha256} from 'js-sha256';
+import {EOSService, passportMock} from '../services/EOSService';
 
 const styles = StyleSheet.create({
   container: {
@@ -61,9 +50,20 @@ export default class HashInfoScreen extends React.Component {
     header: null
   };
 
+  async next() {
+    const {
+      navigation: {navigate}
+    } = this.props;
+    const name = 'TicketHash';
+    const passport = passportMock;
+    const hash = sha256(name + ',' + passport);
+    await EOSService.releaseTicket({hash, ticket_name: 'EOS London', seller: 'ticketsella1'})
+    navigate("BookSuccess");
+  }
+
   render() {
     const {
-      navigation: { navigate }
+      navigation: {navigate}
     } = this.props;
     return (
       <View style={styles.container}>
@@ -97,14 +97,14 @@ export default class HashInfoScreen extends React.Component {
             </Text>
           </View>
           <View
-          // style={{
-          //   width: 25,
-          //   height: 0,
-          //   borderWidth: 0.8,
-          //   borderColor: "red",
-          //   borderStyle: "dashed",
-          //   borderRadius: 0.1
-          // }}
+            // style={{
+            //   width: 25,
+            //   height: 0,
+            //   borderWidth: 0.8,
+            //   borderColor: "red",
+            //   borderStyle: "dashed",
+            //   borderRadius: 0.1
+            // }}
           />
           <View
             style={{
@@ -153,7 +153,7 @@ export default class HashInfoScreen extends React.Component {
         </Text>
         <View style={styles.methodContainer}>
           <TouchableOpacity
-            onPress={() => navigate("BookSuccess")}
+            onPress={() => this.next()}
             style={styles.methodItem}
           >
             <Image
@@ -169,7 +169,7 @@ export default class HashInfoScreen extends React.Component {
             />
           </TouchableOpacity>
           <TouchableOpacity
-            onPress={() => navigate("BookSuccess")}
+            onPress={() => this.next()}
             style={styles.methodItem}
           >
             <Image
@@ -185,7 +185,7 @@ export default class HashInfoScreen extends React.Component {
             />
           </TouchableOpacity>
           <TouchableOpacity
-            onPress={() => navigate("BookSuccess")}
+            onPress={() => this.next()}
             style={styles.methodItem}
           >
             <Image
@@ -201,7 +201,7 @@ export default class HashInfoScreen extends React.Component {
             />
           </TouchableOpacity>
           <TouchableOpacity
-            onPress={() => navigate("BookSuccess")}
+            onPress={() => this.next()}
             style={styles.methodItem}
           >
             <Image
@@ -219,7 +219,7 @@ export default class HashInfoScreen extends React.Component {
         </View>
         <View style={styles.bottomActions}>
           <TouchableOpacity style={styles.actionCacnel}>
-            <Text style={{ color: "rgba(2, 21,40, 0.54)", fontSize: 16 }}>
+            <Text style={{color: "rgba(2, 21,40, 0.54)", fontSize: 16}}>
               Cancel
             </Text>
           </TouchableOpacity>

@@ -1,16 +1,6 @@
 import React from "react";
-import {
-  Image,
-  ScrollView,
-  StyleSheet,
-  Text, TextInput,
-  TouchableOpacity,
-  View
-} from "react-native";
-import { Icon } from "expo";
-
-
-import Layout from "../constants/Layout";
+import {Image, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View} from "react-native";
+import {Icon} from '../components/Icon';
 import EventCard from '../components/EventCard';
 
 const styles = StyleSheet.create({
@@ -53,15 +43,15 @@ export default class HomeScreen extends React.Component {
             <View style={{
               flex: 1, flexDirection: 'row'
             }}>
-              <Text style={{ color: 'white', fontSize: 24, fontWeight: '700', marginRight: 12, }}>London</Text>
+              <Text style={{color: 'white', fontSize: 24, fontWeight: '700', marginRight: 12,}}>London</Text>
               <Icon.Ionicons
                 name={"md-arrow-dropdown"}
                 size={20}
                 color={"white"}
-                style={{ marginTop: 8 }}
+                style={{marginTop: 8}}
               />
             </View>
-            <Text style={{ color: 'white', fontSize: 14, fontWeight: '700' }}>My Tickets</Text>
+            <Text style={{color: 'white', fontSize: 14, fontWeight: '700'}}>My Tickets</Text>
           </View>
           <TextInput
             style={{
