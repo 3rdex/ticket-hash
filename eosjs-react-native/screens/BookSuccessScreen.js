@@ -3,6 +3,7 @@ import {Image, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import {Icon} from '../components/Icon';
 import LinearGradient from 'react-native-linear-gradient';
 import {Assets} from '../constants/Assets';
+import {EOSService} from '../services/EOSService';
 
 const styles = StyleSheet.create({
   container: {
@@ -37,6 +38,7 @@ export default class HashSuccessScreen extends React.Component {
   static navigationOptions = {
     header: null
   };
+
 
   render() {
     const {

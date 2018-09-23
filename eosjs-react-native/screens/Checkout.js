@@ -1,6 +1,8 @@
 import React from "react";
 import {Image, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import Layout from "../constants/Layout";
+import {sha256} from 'js-sha256';
+import {EOSService} from '../services/EOSService';
 
 const styles = StyleSheet.create({
   container: {
@@ -47,6 +49,17 @@ export default class HashInfoScreen extends React.Component {
   static navigationOptions = {
     header: null
   };
+
+  async next() {
+    const {
+      navigation: {navigate}
+    } = this.props;
+    const name = 'TicketHash';
+    const passport = 'G12345678';
+    const hash = sha256(name + ',' + passport);
+    await EOSService.releaseTicket({hash, ticket_name: 'EOS London', seller: 'ticketsella1'})
+    navigate("BookSuccess");
+  }
 
   render() {
     const {
@@ -140,7 +153,7 @@ export default class HashInfoScreen extends React.Component {
         </Text>
         <View style={styles.methodContainer}>
           <TouchableOpacity
-            onPress={() => navigate("BookSuccess")}
+            onPress={() => this.next()}
             style={styles.methodItem}
           >
             <Image
@@ -156,7 +169,7 @@ export default class HashInfoScreen extends React.Component {
             />
           </TouchableOpacity>
           <TouchableOpacity
-            onPress={() => navigate("BookSuccess")}
+            onPress={() => this.next()}
             style={styles.methodItem}
           >
             <Image
@@ -172,7 +185,7 @@ export default class HashInfoScreen extends React.Component {
             />
           </TouchableOpacity>
           <TouchableOpacity
-            onPress={() => navigate("BookSuccess")}
+            onPress={() => this.next()}
             style={styles.methodItem}
           >
             <Image
@@ -188,7 +201,7 @@ export default class HashInfoScreen extends React.Component {
             />
           </TouchableOpacity>
           <TouchableOpacity
-            onPress={() => navigate("BookSuccess")}
+            onPress={() => this.next()}
             style={styles.methodItem}
           >
             <Image

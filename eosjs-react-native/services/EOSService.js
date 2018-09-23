@@ -26,6 +26,7 @@ export class EOSService {
   static async releaseTicket({hash, ticket_name, seller}) {
     const contract = await EOSService.eos.contract('ticketticket');
     await contract.buyticket({hash, ticket_name, seller}, {scope: 'active', authorization: [seller]});
+    console.log('buyticket', {hash, ticket_name, seller});
   }
 
   static async checkTicket({hash , seller}) {
