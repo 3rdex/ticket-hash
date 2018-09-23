@@ -3,7 +3,7 @@ import {
   Image,
   ScrollView,
   StyleSheet,
-  Text,
+  Text, TextInput,
   TouchableOpacity,
   View
 } from "react-native";
@@ -63,6 +63,19 @@ export default class HomeScreen extends React.Component {
             </View>
             <Text style={{ color: 'white', fontSize: 14, fontWeight: '700' }}>My Tickets</Text>
           </View>
+          <TextInput
+            style={{
+              height: 42,
+              paddingLeft: 20,
+              borderRadius: 21,
+              backgroundColor: "rgba(255,255,255,0.37)",
+              color: '#fff',
+              fontSize: 18,
+              fontWeight: '700',
+            }}
+            placeholderTextColor={'#fff'}
+            placeholder={'Search'}
+          />
         </View>
         <View
           style={{
