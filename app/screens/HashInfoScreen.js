@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
     backgroundColor: "transparent",
     borderTopLeftRadius: 30,
     borderBottomLeftRadius: 30,
-    overflow:'hidden',
+    overflow: 'hidden',
   }
 });
 
@@ -95,6 +95,14 @@ export default class HashInfoScreen extends React.Component {
   static navigationOptions = {
     header: null
   };
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      userName: '',
+      passport: '',
+    };
+  }
 
   render() {
     const {
@@ -149,19 +157,23 @@ export default class HashInfoScreen extends React.Component {
           be uploaded to the server or saved by seller.
         </Text>
         <View style={styles.formContainer}>
-          <TextInput style={styles.input} placeholder="Name" />
+          <TextInput style={styles.input} placeholder="Name" onFocus={() => this.setState({ userName: 'TicketHash' })}
+                     value={this.state.userName}
+          />
           <TextInput
             style={[styles.input, styles.passportInput]}
+            onFocus={() => this.setState({ passport: 'G12345678' })}
             placeholder="Passport"
+            value={this.state.passport}
           />
         </View>
         <View style={styles.bottomActions}>
           <TouchableOpacity style={styles.actionCancel} onPress={() => navigate('Home')}>
-            <Text style={{color: 'rgba(2, 21,40, 0.54)', fontSize: 16}}>Cancel</Text>
+            <Text style={{ color: 'rgba(2, 21,40, 0.54)', fontSize: 16 }}>Cancel</Text>
           </TouchableOpacity>
           <TouchableOpacity
-          onPress={() => navigate('Checkout')}
-          style={styles.actionNext}>
+            onPress={() => navigate('Checkout')}
+            style={styles.actionNext}>
             <LinearGradient
               style={{
                 height: "100%",
@@ -179,7 +191,7 @@ export default class HashInfoScreen extends React.Component {
               start={[1, 1]}
               end={[0, 0]}
             >
-              <Text style={{fontSize: 16, color: 'white'}}>Next</Text>
+              <Text style={{ fontSize: 16, color: 'white' }}>Next</Text>
             </LinearGradient>
           </TouchableOpacity>
         </View>
