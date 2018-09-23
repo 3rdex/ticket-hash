@@ -25,11 +25,12 @@ const styles = StyleSheet.create({
   welcomeContainer: {
     alignItems: "center",
     marginTop: 10,
-    marginBottom: 20
+    marginBottom: 20,
+    height: 300,
   },
   welcomeImage: {
-    position: 'absolute',
-    left: 0, 
+    position: "absolute",
+    left: 0,
     top: 0,
     backgroundColor: "black",
     width: Layout.window.width,
@@ -41,7 +42,7 @@ const styles = StyleSheet.create({
     marginTop: 160,
     width: Layout.window.width - 32,
     height: 248,
-    marginLeft: 16, 
+    marginLeft: 16,
     marginRight: 16,
     backgroundColor: "white",
     justifyContent: "center",
@@ -55,6 +56,11 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 1,
     shadowRadius: 16
+  },
+  locationContainer: {
+    flexDirection: 'row',
+    alignItems: 'flex-end',
+    height: 204,
   }
 });
 
@@ -79,11 +85,7 @@ export default class HomeScreen extends React.Component {
             />
             {/* TODO: replace background image */}
             <Image
-              source={
-                __DEV__
-                  ? require("../assets/images/robot-dev.png")
-                  : require("../assets/images/robot-prod.png")
-              }
+              source={require("../assets/images/robot-dev.png")}
               style={styles.welcomeImage}
             />
             <Icon.Ionicons
@@ -167,6 +169,24 @@ export default class HomeScreen extends React.Component {
                 </LinearGradient>
               </TouchableOpacity>
             </View>
+          </View>
+
+          <View style={styles.locationContainer}>
+            <View style={{flex: 3, paddingLeft: 32}}>
+              <Text style={{
+                fontSize: 16, 
+                color: 'rgba(8, 33, 59, 0.87)', 
+                marginBottom: 2,
+                marginRight: 20,
+                }}>
+              London Science Museum</Text>
+              <Text style={{fontSize: 14, color: 'rgba(2, 21, 40, 0.54)'}}>
+              Exhibition Rd, Kensington, London SW7 2DD</Text>
+            </View>
+            <Image 
+            source={require("../assets/images/robot-dev.png")} 
+            style={{flex: 2, height: 204}}
+            />
           </View>
         </ScrollView>
       </View>
