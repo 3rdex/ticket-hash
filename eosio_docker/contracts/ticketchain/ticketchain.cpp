@@ -78,6 +78,7 @@ class ticketchain : public eosio::contract {
         address.ticket_name = ticket_name;
         address.hash        = string_to_name(hash.c_str());
         address.purchase_at = now();
+        address.used_at     = 0;
       });
     }
 
@@ -90,6 +91,7 @@ class ticketchain : public eosio::contract {
       auto tickets = obj.get_index<N(getbyhash)>();
       auto itr = tickets.find(string_to_name(hash.c_str()));
       eosio_assert(itr != tickets.end(), "Ticket not found.");
+      eosio_assert(itr->used_at == 0, "Ticket already used.");
       tickets.modify( itr, seller, [&]( auto& address ) {
         address.used_at   = now();
       });
