@@ -50,10 +50,19 @@ export default class HomeScreen extends React.Component {
           <View style={{
             flex: 1, flexDirection: 'row', justifyContent: 'space-between', color: 'whit', alignItems: 'center',
           }}>
-            <Text style={{ color: 'white', fontSize: 24, fontWeight: '700' }}> London</Text>
+            <View style={{
+              flex: 1, flexDirection: 'row'
+            }}>
+              <Text style={{ color: 'white', fontSize: 24, fontWeight: '700', marginRight: 12, }}>London</Text>
+              <Icon.Ionicons
+                name={"md-arrow-dropdown"}
+                size={20}
+                color={"white"}
+                style={{ marginTop: 8 }}
+              />
+            </View>
             <Text style={{ color: 'white', fontSize: 14, fontWeight: '700' }}>My Tickets</Text>
           </View>
-          <View></View>
         </View>
         <ScrollView
           style={styles.scrollContainer}
