@@ -2,6 +2,7 @@
 android/
 
 ios/build/
+xcuserdata
 
 # Logs
 logs

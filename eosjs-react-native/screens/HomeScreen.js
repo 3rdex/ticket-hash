@@ -1,18 +1,15 @@
 import React from "react";
 import {
   Image,
-  Platform,
   ScrollView,
   StyleSheet,
-  Text,
+  Text, TextInput,
   TouchableOpacity,
   View
 } from "react-native";
-import { WebBrowser, Icon, LinearGradient } from "expo";
+import { Icon } from "expo";
 
-import { MonoText } from "../components/StyledText";
-
-import Layout from "../constants/Layout";
+import EventCard from '../components/EventCard';
 
 const styles = StyleSheet.create({
   container: {
@@ -21,7 +18,11 @@ const styles = StyleSheet.create({
   },
   filterContainer: {
     position: 'relative',
-    padding: 20
+    padding: 20,
+    height: 200
+  },
+  scrollContainer: {
+    padding: 12,
   }
 });
 
@@ -31,43 +32,170 @@ export default class HomeScreen extends React.Component {
   };
 
   render() {
-    const {
-      navigation: { navigate }
-    } = this.props;
     return (
       <View style={styles.container}>
-        <View style={styles.filterContianer}>
+        <View style={styles.filterContainer}>
           <Image
             style={{
               position: "absolute",
-              top: 0,
               left: 0,
-              right: 0,
-              height: 200
+              top: 0,
+              height: 200,
+              right: 0
             }}
             source={require("../assets/images/homeHeader.png")}
           />
+          <View style={{
+            flex: 1, flexDirection: 'row', justifyContent: 'space-between', color: 'whit', alignItems: 'center',
+          }}>
+            <View style={{
+              flex: 1, flexDirection: 'row'
+            }}>
+              <Text style={{ color: 'white', fontSize: 24, fontWeight: '700', marginRight: 12, }}>London</Text>
+              <Icon.Ionicons
+                name={"md-arrow-dropdown"}
+                size={20}
+                color={"white"}
+                style={{ marginTop: 8 }}
+              />
+            </View>
+            <Text style={{ color: 'white', fontSize: 14, fontWeight: '700' }}>My Tickets</Text>
+          </View>
+          <TextInput
+            style={{
+              height: 42,
+              paddingLeft: 20,
+              borderRadius: 21,
+              backgroundColor: "rgba(255,255,255,0.37)",
+              color: '#fff',
+              fontSize: 18,
+              fontWeight: '700',
+            }}
+            placeholderTextColor={'#fff'}
+            placeholder={'Search'}
+          />
+        </View>
+        <View
+          style={{
+            paddingLeft: 20,
+            height: 56,
+            backgroundColor: "#fdfdfd",
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "center"
+          }}
+        >
           <View
-            style={{ flexDirection: "row", justifyContent: "space-between" }}
+            style={{
+              width: 92,
+              height: 28,
+              borderRadius: 14,
+              backgroundColor: "#f8f7fa",
+              flexDirection: "row",
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}
           >
-            <View>
-              <Text style={{ fontSize: 24, color: "white", lineHeight: 32 }}>
-                London
-              </Text>
-              <Icon.Ionicons name={"md-arrow-dropdown"} size={16} />
-            </View>
-            <View>
-              <Icon.Ionicons />
-              <Text style={{ fontSize: 14, color: "white", lineHeight: 32 }}>
-                My Tickets
-              </Text>
-            </View>
+            <Text
+              style={{
+                fontSize: 12,
+                fontWeight: "900",
+                fontStyle: "normal",
+                letterSpacing: -0.2,
+                justifyContent: 'center',
+                alignItems: 'center',
+                marginRight: 8,
+                color: "rgba(2, 21, 40, 0.54)"
+              }}
+            >
+              Any Date
+            </Text>
+            <Icon.Ionicons
+              name={"ios-arrow-down"}
+              color="rgba(2, 21, 40, 0.54)"
+            />
+          </View>
+
+          <View
+            style={{
+              width: 92,
+              height: 28,
+              borderRadius: 14,
+              backgroundColor: "#f8f7fa",
+              flexDirection: "row",
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}
+          >
+            <Text
+              style={{
+                fontSize: 12,
+                fontWeight: "900",
+                fontStyle: "normal",
+                letterSpacing: -0.2,
+                justifyContent: 'center',
+                alignItems: 'center',
+                marginRight: 8,
+                color: "rgba(2, 21, 40, 0.54)"
+              }}
+            >
+              Any Category
+            </Text>
+            <Icon.Ionicons
+              name={"ios-arrow-down"}
+              color="rgba(2, 21, 40, 0.54)"
+            />
+          </View>
+
+          <View
+            style={{
+              width: 92,
+              height: 28,
+              borderRadius: 14,
+              backgroundColor: "#f8f7fa",
+              flexDirection: "row",
+              alignItems: 'center',
+              marginRight: 8,
+              justifyContent: 'center'
+            }}
+          >
+            <Text
+              style={{
+                fontSize: 12,
+                fontWeight: "900",
+                fontStyle: "normal",
+                letterSpacing: -0.2,
+                justifyContent: 'center',
+                alignItems: 'center',
+                marginRight: 8,
+                color: "rgba(2, 21, 40, 0.54)"
+              }}
+            >
+              Any Price
+            </Text>
+            <Icon.Ionicons
+              name={"ios-arrow-down"}
+              color="rgba(2, 21, 40, 0.54)"
+            />
           </View>
         </View>
         <ScrollView
-          style={styles.container}
+          style={styles.scrollContainer}
           contentContainerStyle={styles.contentContainer}
-        />
+        >
+          <TouchableOpacity
+            onPress={() => this.props.navigation.navigate("EventDetail")}>
+            <EventCard source={require("../assets/images/event_1.png")} date={'Oct 10, Saturday'}
+                       title={'Trade Pass: London Design Fair 2018'} price={'$12 - $25'}
+                       location={'3 South Place, London'}/>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => this.props.navigation.navigate("EventDetail")}>
+            <EventCard source={require("../assets/images/event_2.png")} date={'Sep 22, Saturday'}
+                       title={'EOS Hackathon London'} price={'$10'} location={'Kensington, London'}/>
+          </TouchableOpacity>
+
+        </ScrollView>
       </View>
     );
   }

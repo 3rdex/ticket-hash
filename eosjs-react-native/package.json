@@ -7,7 +7,6 @@
     "test": "jest"
   },
   "dependencies": {
-    "eosjs-api": "^7.0.4",
     "@tradle/react-native-http": "^2.0.1",
     "assert": "^1.4.1",
     "browserify-zlib": "^0.1.4",
@@ -17,6 +16,7 @@
     "dns.js": "^1.0.1",
     "domain-browser": "^1.2.0",
     "eosjs": "^16.0.8",
+    "eosjs-api": "^7.0.4",
     "events": "^1.1.1",
     "expo": "^30.0.1",
     "https-browserify": "0.0.1",
