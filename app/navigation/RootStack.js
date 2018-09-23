@@ -5,12 +5,14 @@ import {
 } from "react-navigation";
 import HomeScreen from "../screens/HomeScreen";
 import HashInfoScreen from "../screens/HashInfoScreen";
-import HashSuccessScreen from "../screens/HashSuccessScreen";
+import CheckoutScreen from "../screens/Checkout";
+import BookSuccessScreen from "../screens/BookSuccessScreen";
 
 const RootStack = createStackNavigator({
   Home: HomeScreen,
   HashInfo: HashInfoScreen,
-  HashSuccess: HashSuccessScreen,
+  Checkout: CheckoutScreen,
+  BookSuccess: BookSuccessScreen,
 });
 
 export default RootStack;

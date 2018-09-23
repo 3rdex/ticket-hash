@@ -1,0 +1,301 @@
+import React from "react";
+import {
+  Image,
+  Platform,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+  TextInput
+} from "react-native";
+import { WebBrowser, Icon, LinearGradient } from "expo";
+
+import { MonoText } from "../components/StyledText";
+
+import Layout from "../constants/Layout";
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "rgb(247, 247, 247)"
+  },
+  methodContainer: {
+    marginTop: 24
+  },
+  methodItem: {
+    height: 56,
+    marginLeft: 16,
+    marginRight: 16,
+    marginTop: 6,
+    marginBottom: 6,
+    borderRadius: 56,
+    backgroundColor: "white",
+    justifyContent: "space-between",
+    alignItems: "center",
+    borderRadius: 16,
+    shadowColor: "rgba(137, 157, 179, 0.25)",
+    shadowOffset: {
+      width: 0,
+      height: 24
+    },
+    shadowOpacity: 1,
+    shadowRadius: 16,
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  bottomActions: {
+    position: "absolute",
+    bottom: 30,
+    left: 0,
+    right: 0,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    height: 48
+  },
+  actionCacnel: {
+    width: 110,
+    height: 48,
+    backgroundColor: "rgb(253, 253, 253)",
+    shadowColor: "rgba(137, 157, 179, 0.25)",
+    shadowOffset: {
+      width: 0,
+      height: 24
+    },
+    shadowOpacity: 1,
+    shadowRadius: 16,
+    borderTopRightRadius: 30,
+    borderBottomRightRadius: 30,
+    justifyContent: "center",
+    alignItems: "center"
+  }
+});
+
+export default class HashInfoScreen extends React.Component {
+  static navigationOptions = {
+    header: null
+  };
+
+  render() {
+    const {
+      navigation: { navigate }
+    } = this.props;
+    return (
+      <View style={styles.container}>
+        {/* TODO: add image */}
+        <View
+          style={{
+            paddingLeft: 25,
+            paddingRight: 25,
+            marginTop: 80,
+            flexDirection: "row",
+            justifyContent: "space-between"
+          }}
+        >
+          <View
+            style={{
+              width: 32,
+              height: 32,
+              borderRadius: 16,
+              alignItems: "center",
+              justifyContent: "center",
+              backgroundColor: "rgb(252, 119, 111)"
+            }}
+          >
+            <Text
+              style={{
+                fontSize: 16,
+                color: "rgba(2, 21, 40, 0.04)"
+              }}
+            >
+              1
+            </Text>
+          </View>
+          <View
+          // style={{
+          //   width: 25,
+          //   height: 0,
+          //   borderWidth: 0.8,
+          //   borderColor: "red",
+          //   borderStyle: "dashed",
+          //   borderRadius: 0.1
+          // }}
+          />
+          <View
+            style={{
+              width: 32,
+              height: 32,
+              borderRadius: 16,
+              alignItems: "center",
+              justifyContent: "center",
+              backgroundColor: "rgba(2, 21, 40, 0.04)"
+            }}
+          >
+            <Text
+              style={{
+                fontSize: 16,
+                color: "rgb(252, 119, 111)"
+              }}
+            >
+              2
+            </Text>
+          </View>
+        </View>
+        <Text
+          style={{
+            paddingLeft: 30,
+            paddingRight: 30,
+            fontSize: 24,
+            lineHeight: 24,
+            color: "rgba(8, 33, 59, 0.87)",
+            marginTop: 30
+          }}
+        >
+          Payment method
+        </Text>
+        <Text
+          style={{
+            paddingLeft: 28,
+            paddingRight: 28,
+            marginTop: 20,
+            fontSize: 14,
+            lineHeight: 20,
+            color: "rgba(2, 21, 40, 0.54)"
+          }}
+        >
+          Make payment through 3rd party services, no credit card data will be
+          uploaded or saved on this platform.
+        </Text>
+        <View style={styles.methodContainer}>
+          <TouchableOpacity
+            onPress={() => navigate("BookSuccess")}
+            style={styles.methodItem}
+          >
+            <View style={{ flexDirection: "row", alignItems: "center" }}>
+              <Text
+                style={{
+                  color: "rgba(2, 21, 40, 0.54)",
+                  marginRight: 8
+                }}
+              >
+                Stripe
+              </Text>
+              <Icon.Ionicons
+                name={"ios-arrow-forward"}
+                size={20}
+                color={"rgba(137, 157, 179, 0.25)"}
+              />
+              <Icon.Ionicons
+                name={"ios-arrow-forward"}
+                size={20}
+                color={"rgba(137, 157, 179, 0.25)"}
+              />
+              <Icon.Ionicons
+                name={"ios-arrow-forward"}
+                size={20}
+                color={"rgba(137, 157, 179, 0.25)"}
+              />
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => navigate("BookSuccess")}
+            style={styles.methodItem}
+          >
+            <View style={{ flexDirection: "row", alignItems: "center" }}>
+              <Text
+                style={{
+                  color: "rgba(2, 21, 40, 0.54)",
+                  marginRight: 8
+                }}
+              >
+                Stripe
+              </Text>
+              <Icon.Ionicons
+                name={"ios-arrow-forward"}
+                size={20}
+                color={"rgba(137, 157, 179, 0.25)"}
+              />
+              <Icon.Ionicons
+                name={"ios-arrow-forward"}
+                size={20}
+                color={"rgba(137, 157, 179, 0.25)"}
+              />
+              <Icon.Ionicons
+                name={"ios-arrow-forward"}
+                size={20}
+                color={"rgba(137, 157, 179, 0.25)"}
+              />
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => navigate("BookSuccess")}
+            style={styles.methodItem}
+          >
+            <View style={{ flexDirection: "row", alignItems: "center" }}>
+              <Text
+                style={{
+                  color: "rgba(2, 21, 40, 0.54)",
+                  marginRight: 8
+                }}
+              >
+                Stripe
+              </Text>
+              <Icon.Ionicons
+                name={"ios-arrow-forward"}
+                size={20}
+                color={"rgba(137, 157, 179, 0.25)"}
+              />
+              <Icon.Ionicons
+                name={"ios-arrow-forward"}
+                size={20}
+                color={"rgba(137, 157, 179, 0.25)"}
+              />
+              <Icon.Ionicons
+                name={"ios-arrow-forward"}
+                size={20}
+                color={"rgba(137, 157, 179, 0.25)"}
+              />
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => navigate("BookSuccess")}
+            style={styles.methodItem}
+          >
+            <View style={{ flexDirection: "row", alignItems: "center" }}>
+              <Text
+                style={{
+                  color: "rgba(2, 21, 40, 0.54)",
+                  marginRight: 8
+                }}
+              >
+                Stripe
+              </Text>
+              <Icon.Ionicons
+                name={"ios-arrow-forward"}
+                size={20}
+                color={"rgba(137, 157, 179, 0.25)"}
+              />
+              <Icon.Ionicons
+                name={"ios-arrow-forward"}
+                size={20}
+                color={"rgba(137, 157, 179, 0.25)"}
+              />
+              <Icon.Ionicons
+                name={"ios-arrow-forward"}
+                size={20}
+                color={"rgba(137, 157, 179, 0.25)"}
+              />
+            </View>
+          </TouchableOpacity>
+        </View>
+        <View style={styles.bottomActions}>
+          <TouchableOpacity style={styles.actionCacnel}>
+            <Text style={{ color: "rgba(2, 21,40, 0.54)", fontSize: 16 }}>
+              Cancel
+            </Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    );
+  }
+}

@@ -62,13 +62,33 @@ const styles = StyleSheet.create({
     alignItems: "flex-end",
     height: 204
   },
+  bottomContainer: {
+    paddingTop: 24,
+    backgroundColor: 'white',
+    flex: 1,
+    minHeight: Layout.window.height - 510,
+  },
   tabContainer: {
-    marginTop: 24,
     marginBottom: 24,
     paddingLeft: 50,
     paddingRight: 50,
     flexDirection: "row",
     justifyContent: "space-between"
+  },
+  ticketModal: {
+    backgroundColor: "rgba(2, 21, 40, 0.54)",
+    position: "absolute",
+    top: 0,
+    right: 0,
+    right: 0,
+    bottom: 0
+  },
+  modalContent: {
+    height: 342,
+    bottom: 0,
+    left: 0,
+    right: 0,
+    backgroundColor: "white"
   }
 });
 
@@ -77,8 +97,34 @@ export default class HomeScreen extends React.Component {
     header: null
   };
 
+  constructor(props) {
+    super(props);
+    const {
+      navigation: { getParam }
+    } = this.props;
+    this.state = { showTicket: false };
+    alert(JSON.stringify(getParam("showTicket")));
+  }
+
+  componentWillReceiveProps() {
+    const { navigation } = this.props;
+    let showTicket = false;
+    // FIXME:
+    if (navigation.getParam("showTicket") === undefined) {
+      showTicket = true;
+    } else {
+      showTicket = getParam("showTicket");
+    }
+    this.setState(() => ({
+      showTicket
+    }));
+    alert(JSON.stringify(navigation));
+  }
+
   render() {
-    const {navigation: {navigate}} = this.props;
+    const {
+      navigation: { navigate }
+    } = this.props;
     return (
       <View style={styles.container}>
         <ScrollView
@@ -132,7 +178,7 @@ export default class HomeScreen extends React.Component {
                 November 11 - November 11
               </Text>
               <TouchableOpacity
-              onPress={() => this.props.navigation.navigate('HashInfo')}
+                onPress={() => this.props.navigation.navigate("HashInfo")}
                 style={{
                   shadowColor: "rgba(137, 157, 179, 0.25)",
                   shadowOffset: {
@@ -182,7 +228,7 @@ export default class HomeScreen extends React.Component {
           </View>
 
           <View style={styles.locationContainer}>
-            <View style={{ flex: 3, paddingLeft: 32 }}>
+            <View style={{ flex: 3, paddingLeft: 32, paddingRight: 20, marginBottom: 16 }}>
               <Text
                 style={{
                   fontSize: 16,
@@ -202,49 +248,51 @@ export default class HomeScreen extends React.Component {
               style={{ flex: 2, height: 204 }}
             />
           </View>
-
-          <View style={styles.tabContainer}>
-            <View>
-              <Text
-                style={{
-                  fontSize: 14,
-                  color: "rgba(2, 21, 40, 0.34)"
-                }}
-              >
-                Detail
+          <View style={styles.bottomContainer}>
+            <View style={styles.tabContainer}>
+              <View>
+                <Text
+                  style={{
+                    fontSize: 14,
+                    color: "rgba(2, 21, 40, 0.34)"
+                  }}
+                >
+                  Detail
+                </Text>
+              </View>
+              <View>
+                <Text
+                  style={{
+                    fontSize: 14,
+                    color: "rgba(2, 21, 40, 0.34)"
+                  }}
+                >
+                  Date & Time
+                </Text>
+              </View>
+              <View>
+                <Text
+                  style={{
+                    fontSize: 14,
+                    color: "rgba(2, 21, 40, 0.34)"
+                  }}
+                >
+                  Location
+                </Text>
+              </View>
+            </View>
+            <View style={{ paddingLeft: 36, paddingRight: 36 }}>
+              <Text style={{ fontSize: 14, lineHeight: 18, color: "rgba(8, 33, 59, 0.87)" }}>
+                The Hackathon Challenge will be released on the day of the event
+                to ensure a level playing field for all participating! In the
+                mean time, start getting familiar with documentation on the
+                EOSIO Developer Portal and get involved with the community
+                through our EOSIO social channels and Telegram groups.
               </Text>
             </View>
-            <View>
-              <Text
-                style={{
-                  fontSize: 14,
-                  color: "rgba(2, 21, 40, 0.34)"
-                }}
-              >
-                Date & Time
-              </Text>
-            </View>
-            <View>
-              <Text
-                style={{
-                  fontSize: 14,
-                  color: "rgba(2, 21, 40, 0.34)"
-                }}
-              >
-                Location
-              </Text>
-            </View>
-          </View>
-          <View style={{ paddingLeft: 36, paddingRight: 36 }}>
-            <Text style={{ fontSize: 14, color: "rgba(8, 33, 59, 0.87)" }}>
-              The Hackathon Challenge will be released on the day of the event
-              to ensure a level playing field for all participating! In the mean
-              time, start getting familiar with documentation on the EOSIO
-              Developer Portal and get involved with the community through our
-              EOSIO social channels and Telegram groups.
-            </Text>
           </View>
         </ScrollView>
+        {this.state.showTicket && <View class={styles.ticketModal} />}
       </View>
     );
   }

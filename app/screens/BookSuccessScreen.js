@@ -81,6 +81,9 @@ export default class HashSuccessScreen extends React.Component {
           be uploaded to the server or saved by seller.
         </Text>
         <TouchableOpacity
+          onPress={() =>
+            navigate({ routeName: "Home", params: { showTicket: true } })
+          }
           style={{
             marginTop: 36
           }}
