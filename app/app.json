@@ -1,6 +1,8 @@
 {
+  "name": "TicketHash",
+  "displayName": "Ticket Hash",
   "expo": {
-    "name": "app",
+    "name": "TicketHash",
     "description": "A very interesting project.",
     "slug": "app",
     "privacy": "public",
