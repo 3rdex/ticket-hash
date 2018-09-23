@@ -153,7 +153,7 @@ export default class HashInfoScreen extends React.Component {
           />
         </View>
         <View style={styles.bottomActions}>
-          <TouchableOpacity style={styles.actionCacnel} onPress={() => navigate('Home')}>
+          <TouchableOpacity style={styles.actionCacnel} onPress={() => navigate('EventDetail')}>
             <Text style={{color: 'rgba(2, 21,40, 0.54)', fontSize: 16}}>Cancel</Text>
           </TouchableOpacity>
           <TouchableOpacity 

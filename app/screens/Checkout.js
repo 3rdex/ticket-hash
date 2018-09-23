@@ -167,17 +167,6 @@ export default class HashInfoScreen extends React.Component {
               }}
               source={require("../assets/images/G0.png")}
             />
-             <Text
-              style={{
-                fontSize: 18,
-                color: "rgba(2, 21, 40, 0.54)",
-                position: 'absolute',
-                right: 60,
-                top: 16
-              }}
-            >
-              Stripe
-            </Text>
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() => navigate("BookSuccess")}
@@ -194,17 +183,6 @@ export default class HashInfoScreen extends React.Component {
               }}
               source={require("../assets/images/G1.png")}
             />
-            <Text
-              style={{
-                fontSize: 18,
-                color: "rgba(2, 21, 40, 0.54)",
-                position: 'absolute',
-                right: 60,
-                top: 16
-              }}
-            >
-              Venmo
-            </Text>
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() => navigate("BookSuccess")}
@@ -221,17 +199,6 @@ export default class HashInfoScreen extends React.Component {
               }}
               source={require("../assets/images/G2.png")}
             />
-             <Text
-              style={{
-                fontSize: 18,
-                color: "rgba(2, 21, 40, 0.54)",
-                position: 'absolute',
-                right: 60,
-                top: 16
-              }}
-            >
-              Wechat
-            </Text>
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() => navigate("BookSuccess")}
@@ -248,17 +215,6 @@ export default class HashInfoScreen extends React.Component {
               }}
               source={require("../assets/images/G3.png")}
             />
-             <Text
-              style={{
-                fontSize: 18,
-                color: "rgba(2, 21, 40, 0.54)",
-                position: 'absolute',
-                right: 60,
-                top: 16
-              }}
-            >
-              Alipay
-            </Text>
           </TouchableOpacity>
         </View>
         <View style={styles.bottomActions}>
