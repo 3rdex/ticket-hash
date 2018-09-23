@@ -21,20 +21,14 @@ const styles = StyleSheet.create({
     backgroundColor: "rgb(247, 247, 247)"
   },
   filterContainer: {
-<<<<<<< HEAD
-    position: "relative",
-    height: 200,
-    padding: 20,
     justifyContent: "center",
-    alignItems: "center"
-=======
+    alignItems: "center",
     position: 'relative',
     padding: 20,
     height: 200
   },
   scrollContainer: {
     padding: 12,
->>>>>>> 808a04f868aa5050b5081c9870a3eb4d68e2021a
   }
 });
 
@@ -90,7 +84,6 @@ export default class HomeScreen extends React.Component {
               >
                 London
               </Text>
-<<<<<<< HEAD
               <Icon.Ionicons
                 name={"md-arrow-dropdown"}
                 size={16}
@@ -107,7 +100,7 @@ export default class HomeScreen extends React.Component {
                 alignItems: "center"
               }}
             >
-              <Icon.Ionicons size={16} color={"white"} />
+              <Icon.Ionicons size={16} color={"white"}/>
               <Text
                 style={{
                   fontSize: 14,
@@ -117,14 +110,13 @@ export default class HomeScreen extends React.Component {
                 }}
               >
                 My tickets
-=======
-              <Icon.Ionicons name={"md-arrow-dropdown"} size={16}/>
+                <Icon.Ionicons name={"md-arrow-dropdown"} size={16}/>
+              </Text>
             </View>
             <View>
               <Icon.Ionicons/>
               <Text style={{ fontSize: 14, color: "white", lineHeight: 32 }}>
                 My Tickets
->>>>>>> 808a04f868aa5050b5081c9870a3eb4d68e2021a
               </Text>
             </View>
           </View>
@@ -184,7 +176,7 @@ export default class HomeScreen extends React.Component {
             />
           </View>
 
-           <View
+          <View
             style={{
               width: 92,
               height: 28,
@@ -215,7 +207,7 @@ export default class HomeScreen extends React.Component {
             />
           </View>
 
-           <View
+          <View
             style={{
               width: 92,
               height: 28,
@@ -255,7 +247,7 @@ export default class HomeScreen extends React.Component {
                      title={'Trade Pass: London Design Fair 2018'} price={'$12 - $25'}
                      location={'3 South Place, London'}/>
           <EventCard source={require("../assets/images/event_2.png")} date={'Sep 22, Saturday'}
-                     title={'EOS Hackathon London'} price={'$10'}  location={'Kensington, London'}/>
+                     title={'EOS Hackathon London'} price={'$10'} location={'Kensington, London'}/>
         </ScrollView>
       </View>
     );
