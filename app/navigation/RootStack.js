@@ -14,16 +14,12 @@ import OrganizerScanScreen from "../screens/OrganizerScanScreen";
 import OrganizerVerifiedScreen from "../screens/OrganizerVerifiedScreen";
 
 const RootStack = createStackNavigator({
-<<<<<<< HEAD
-  Home: HomeScreen,
-  EventDetail: EventDetailScreen,
-=======
   Home: SelectionScreen,
   UserHome: HomeScreen,
->>>>>>> 353714e3f027e605240d782105c6178422376c1e
   HashInfo: HashInfoScreen,
   Checkout: CheckoutScreen,
   BookSuccess: BookSuccessScreen,
+  EventDetail: EventDetailScreen,
   OrganizerHome: OrganizerHomeScreen,
   OrganizerScan: OrganizerScanScreen,
   OrganizerVerified: OrganizerVerifiedScreen

@@ -117,6 +117,7 @@ export default class OrganizerVerifiedScreen extends React.Component {
 
 
             <TouchableOpacity
+              onPress={()=>this.props.navigation.navigate("Home")}
               style={{
                 position: "absolute",
                 left: 5,
