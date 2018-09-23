@@ -80,7 +80,6 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: 0,
     right: 0,
-    right: 0,
     bottom: 0
   },
   modalContent: {
@@ -157,8 +156,11 @@ export default class EventDetailScreen extends React.Component {
               <Text
                 style={{
                   fontSize: 24,
+                  fontWeight: '700',
                   textAlign: "center",
                   lineHeight: 32,
+                  width: 176,
+                  height: 74,
                   color: "rgba(8, 33, 59, 0.87)"
                 }}
               >
@@ -173,7 +175,7 @@ export default class EventDetailScreen extends React.Component {
                   color: "rgba(2, 21, 40, 0.54)"
                 }}
               >
-                November 11 - November 11
+                Sep 23 - Sep 24
               </Text>
               <TouchableOpacity
                 onPress={() => this.props.navigation.navigate("HashInfo")}
@@ -290,7 +292,7 @@ export default class EventDetailScreen extends React.Component {
             </View>
           </View>
         </ScrollView>
-        {this.state.showTicket && <View class={styles.ticketModal} />}
+        {this.state.showTicket && <View class={styles.ticketModal}/>}
       </View>
     );
   }
