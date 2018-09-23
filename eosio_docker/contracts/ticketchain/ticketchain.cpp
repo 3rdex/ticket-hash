@@ -1,6 +1,7 @@
 #include <eosiolib/eosio.hpp>
 #include <eosiolib/print.hpp>
 using namespace eosio;
+using std::string;
 
 // Smart Contract Name: ticketchain
 // Table struct:
@@ -26,12 +27,28 @@ class ticketchain : public eosio::contract {
       return ticket == tickets.end();
     }
 
+    void check_seller_exists(account_name seller) {
+      salertable st(_self, _self);
+      auto itr = st.find(seller);
+      eosio_assert(itr != st.end(), "Seller not exists");
+    }
+
     /// @abi table
-    struct ticketstruct {
+    struct sellers {
       uint64_t      prim_key;  // primary key
-      uint64_t      hash;      // the hash of identity
+      uint64_t          time;
+
+      // primary key
+      auto primary_key() const { return prim_key; }
+    };
+
+    /// @abi table
+    struct tickets {
+      uint64_t      prim_key;    // primary key
+      uint64_t      hash;        // the hash of identity
+      string        ticket_name; // ticket name
       uint64_t      purchase_at; // the store the last update block time
-      uint64_t      used_at; // the store the last update block time
+      uint64_t      used_at;     // the store the last update block time
 
       // primary key
       auto primary_key() const { return prim_key; }
@@ -40,37 +57,64 @@ class ticketchain : public eosio::contract {
     };
 
     // create a multi-index table and support secondary key
-    typedef eosio::multi_index< N(ticketstruct), ticketstruct,
-      indexed_by< N(getbyhash), const_mem_fun<ticketstruct, uint64_t, &ticketstruct::get_by_hash> >
+    typedef eosio::multi_index< N(tickets), tickets,
+      indexed_by< N(getbyhash), const_mem_fun<tickets, uint64_t, &tickets::get_by_hash> >
     > tickettable;
+    typedef eosio::multi_index< N(sellers), sellers> salertable;
 
   public:
     using contract::contract;
 
     /// @abi action
-    void buyticket( uint64_t hash ) {
-      require_auth( N(ticketticket) );
+    void buyticket( uint64_t hash, string ticket_name, account_name seller ) {
+      check_seller_exists(seller);
+      tickettable obj(_self, seller);
+      require_auth( seller );
 
-      tickettable obj(_self, _self);
-      obj.emplace( _self, [&]( auto& address ) {
+      obj.emplace( seller, [&]( auto& address ) {
         address.prim_key    = obj.available_primary_key();
+        address.ticket_name = ticket_name;
         address.hash        = hash;
-        address.purchase_at   = now();
+        address.purchase_at = now();
       });
     }
 
     /// @abi action
-    void check( uint64_t hash ) {
-      require_auth( N(ticketticket) );
+    void check( uint64_t hash, account_name seller ) {
+      check_seller_exists(seller);
+      tickettable obj(_self, seller);
+      require_auth( seller );
 
-      tickettable obj(_self, _self);
       auto tickets = obj.get_index<N(getbyhash)>();
-      auto &ticket = tickets.get(hash);
-      obj.modify( ticket, _self, [&]( auto& address ) {
+      auto itr = tickets.find(hash);
+      eosio_assert(itr != tickets.end(), "Ticket not found.");
+      tickets.modify( itr, seller, [&]( auto& address ) {
         address.used_at   = now();
       });
+    }
+
+    /// @abi action
+    void grant( account_name seller ) {
+      require_auth( _self );
+      salertable obj(_self, _self);
+      auto itr = obj.find(seller);
+      eosio_assert(itr == obj.end(), "Seller already exists.");
+      obj.emplace( _self, [&]( auto& address ) {
+        address.prim_key    = seller;
+        address.time        = now();
+      });
+    }
+
+    /// @abi action
+    void revoke( account_name seller ) {
+      require_auth( _self );
+      salertable obj(_self, _self);
+      auto itr = obj.find(seller);
+      eosio_assert(itr != obj.end(), "Seller not found.");
+      obj.erase( itr );
+      eosio_assert(itr != obj.end(), "Failed to remove seller.");
     }
 };
 
 // specify the contract name, and export a public action: update
-EOSIO_ABI( ticketchain, (buyticket)(check) )
+EOSIO_ABI( ticketchain, (buyticket)(check)(grant)(revoke) )
