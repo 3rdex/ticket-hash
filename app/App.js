@@ -3,7 +3,7 @@ import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { AppLoading, Asset, Font, Icon } from 'expo';
 import RootStack from './navigation/RootStack';
 
-export default class App extends React.Component {
+export default class Index extends React.Component {
   state = {
     isLoadingComplete: false,
   };
@@ -29,7 +29,7 @@ export default class App extends React.Component {
 
   _loadResourcesAsync = async () => {
     return Promise.all([
-      Asset.loadAsync([ 
+      Asset.loadAsync([
         require('./assets/images/confirmation.png'),
         require('./assets/images/event_1.png'),
         require('./assets/images/event_2.png'),
