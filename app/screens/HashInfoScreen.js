@@ -156,7 +156,9 @@ export default class HashInfoScreen extends React.Component {
           <TouchableOpacity style={styles.actionCacnel}>
             <Text style={{color: 'rgba(2, 21,40, 0.54)', fontSize: 16}}>Cancel</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.actionNext}>
+          <TouchableOpacity 
+          onPress={() => navigate('HashSuccess')}
+          style={styles.actionNext}>
             <LinearGradient
               style={{
                 height: "100%",

@@ -5,10 +5,12 @@ import {
 } from "react-navigation";
 import HomeScreen from "../screens/HomeScreen";
 import HashInfoScreen from "../screens/HashInfoScreen";
+import HashSuccessScreen from "../screens/HashSuccessScreen";
 
 const RootStack = createStackNavigator({
   Home: HomeScreen,
-  HashInfo: HashInfoScreen
+  HashInfo: HashInfoScreen,
+  HashSuccess: HashSuccessScreen,
 });
 
 export default RootStack;
