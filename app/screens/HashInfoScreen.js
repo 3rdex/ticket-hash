@@ -3,6 +3,7 @@ import {StyleSheet, Text, TextInput, TouchableOpacity, View} from "react-native"
 import LinearGradient from 'react-native-linear-gradient'
 
 import Layout from "../constants/Layout";
+import {passportMock} from '../services/EOSService';
 
 const styles = StyleSheet.create({
   container: {
@@ -151,7 +152,7 @@ export default class HashInfoScreen extends React.Component {
           />
           <TextInput
             style={[styles.input, styles.passportInput]}
-            onFocus={() => this.setState({ passport: 'G12345678' })}
+            onFocus={() => this.setState({ passport: passportMock })}
             placeholder="Passport"
             value={this.state.passport}
           />
