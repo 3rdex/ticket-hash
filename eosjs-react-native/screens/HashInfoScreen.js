@@ -1,16 +1,6 @@
 import React from "react";
-import {
-  Image,
-  Platform,
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-  TextInput
-} from "react-native";
-import {Icon} from '../components/Icon';
-import LinearGradient from 'react-native-linear-gradient';
+import {StyleSheet, Text, TextInput, TouchableOpacity, View} from "react-native";
+import LinearGradient from 'react-native-linear-gradient'
 
 import Layout from "../constants/Layout";
 
@@ -105,7 +95,7 @@ export default class HashInfoScreen extends React.Component {
 
   render() {
     const {
-      navigation: {navigate}
+      navigation: { navigate }
     } = this.props;
     return (
       <View style={styles.container}>
@@ -156,19 +146,19 @@ export default class HashInfoScreen extends React.Component {
           be uploaded to the server or saved by seller.
         </Text>
         <View style={styles.formContainer}>
-          <TextInput style={styles.input} placeholder="Name" onFocus={() => this.setState({userName: 'TicketHash'})}
+          <TextInput style={styles.input} placeholder="Name" onFocus={() => this.setState({ userName: 'TicketHash' })}
                      value={this.state.userName}
           />
           <TextInput
             style={[styles.input, styles.passportInput]}
-            onFocus={() => this.setState({passport: 'G12345678'})}
+            onFocus={() => this.setState({ passport: 'G12345678' })}
             placeholder="Passport"
             value={this.state.passport}
           />
         </View>
         <View style={styles.bottomActions}>
-          <TouchableOpacity style={styles.actionCacnel} onPress={() => navigate('EventDetail')}>
-            <Text style={{color: 'rgba(2, 21,40, 0.54)', fontSize: 16}}>Cancel</Text>
+          <TouchableOpacity style={styles.actionCancel} onPress={() => navigate('Home')}>
+            <Text style={{ color: 'rgba(2, 21,40, 0.54)', fontSize: 16 }}>Cancel</Text>
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() => navigate('Checkout')}
@@ -190,7 +180,7 @@ export default class HashInfoScreen extends React.Component {
               start={[1, 1]}
               end={[0, 0]}
             >
-              <Text style={{fontSize: 16, color: 'white'}}>Next</Text>
+              <Text style={{ fontSize: 16, color: 'white' }}>Next</Text>
             </LinearGradient>
           </TouchableOpacity>
         </View>

@@ -1,15 +1,7 @@
 import React from "react";
-import {
-  Image,
-  Platform,
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View
-} from "react-native";
-import LinearGradient from 'react-native-linear-gradient';
+import {Image, ScrollView, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import {Icon} from '../components/Icon';
+import LinearGradient from 'react-native-linear-gradient';
 import Layout from "../constants/Layout";
 
 const styles = StyleSheet.create({
@@ -36,7 +28,9 @@ const styles = StyleSheet.create({
     resizeMode: "contain"
   },
   eventInfoContainer: {
-    zIndex: 2,
+    position:'absolute',
+    top: 60,
+    zIndex:2,
     marginTop: 160,
     width: Layout.window.width - 32,
     height: 248,
@@ -127,104 +121,102 @@ export default class EventDetailScreen extends React.Component {
           contentContainerStyle={styles.contentContainer}
         >
           <View style={styles.welcomeContainer}>
-            <Icon.Ionicons
-              name={"ios-arrow-back"}
-              size={26}
-              style={{ position: "absolute", left: 25.5, top: 0 }}
-              color={"white"}
-            />
-            {/* TODO: replace background image */}
             <Image
               source={require("../assets/images/event_details_header.png")}
               style={styles.welcomeImage}
             />
             <Icon.Ionicons
+              name={"ios-arrow-back"}
+              size={26}
+              style={{ position: "absolute", left: 25.5, top: 20 }}
+              color={"white"}
+            />
+            <Icon.Ionicons
               name={"ios-star"}
               size={26}
-              style={{ position: "absolute", top: 0, right: 62.5 }}
+              style={{ position: "absolute", top: 20, right: 80 }}
               color={"white"}
             />
             <Icon.Ionicons
               name={"md-share"}
               size={26}
-              style={{ position: "absolute", right: 25.5, top: 0 }}
+              style={{ position: "absolute", right: 24, top: 20 }}
               color={"white"}
             />
-            <View style={styles.eventInfoContainer}>
-              <Text
-                style={{
-                  fontSize: 24,
-                  fontWeight: '700',
-                  textAlign: "center",
-                  lineHeight: 32,
-                  width: 176,
-                  height: 74,
-                  color: "rgba(8, 33, 59, 0.87)"
-                }}
-              >
-                EOS Hackathon London
-              </Text>
-              <Text
-                style={{
-                  marginTop: 20,
-                  marginBottom: 32,
-                  fontSize: 14,
-                  lineHeight: 16,
-                  color: "rgba(2, 21, 40, 0.54)"
-                }}
-              >
-                Sep 23 - Sep 24
-              </Text>
-              <TouchableOpacity
-                onPress={() => this.props.navigation.navigate("HashInfo")}
-                style={{
-                  shadowColor: "rgba(137, 157, 179, 0.25)",
-                  shadowOffset: {
-                    width: 0,
-                    height: 24
-                  },
-                  shadowOpacity: 1,
-                  shadowRadius: 16
-                }}
-              >
-                <LinearGradient
-                  style={{
-                    width: 280,
-                    height: 48,
-                    borderRadius: 24,
-                    paddingLeft: 24,
-                    paddingRight: 24,
-                    flexDirection: "row",
-                    justifyContent: "space-between",
-                    alignItems: "center"
-                  }}
-                  colors={["#ffbb87", "#ff6f83"]}
-                  start={[1, 1]}
-                  end={[0, 0]}
-                >
-                  <Text
-                    style={{
-                      fontSize: 16,
-                      lineHeight: 20,
-                      color: "rgba(253, 253, 253, 1)"
-                    }}
-                  >
-                    Get Tickets
-                  </Text>
-                  <Text
-                    style={{
-                      fontSize: 16,
-                      lineHeight: 20,
-                      color: "rgba(253, 253, 253, 1)"
-                    }}
-                  >
-                    $10
-                  </Text>
-                </LinearGradient>
-              </TouchableOpacity>
-            </View>
           </View>
-
+          <View style={styles.eventInfoContainer}>
+            <Text
+              style={{
+                fontSize: 24,
+                fontWeight: '700',
+                textAlign: "center",
+                lineHeight: 32,
+                width: 176,
+                height: 74,
+                color: "rgba(8, 33, 59, 0.87)"
+              }}
+            >
+              EOS Hackathon LONDON
+            </Text>
+            <Text
+              style={{
+                marginTop: 20,
+                marginBottom: 32,
+                fontSize: 14,
+                lineHeight: 16,
+                color: "rgba(2, 21, 40, 0.54)"
+              }}
+            >
+              Sep 23 - Sep 24
+            </Text>
+            <TouchableOpacity
+              onPress={() => this.props.navigation.navigate("HashInfo")}
+              style={{
+                shadowColor: "rgba(137, 157, 179, 0.25)",
+                shadowOffset: {
+                  width: 0,
+                  height: 24
+                },
+                shadowOpacity: 1,
+                shadowRadius: 16
+              }}
+            >
+              <LinearGradient
+                style={{
+                  width: 280,
+                  height: 48,
+                  borderRadius: 24,
+                  paddingLeft: 24,
+                  paddingRight: 24,
+                  flexDirection: "row",
+                  justifyContent: "space-between",
+                  alignItems: "center"
+                }}
+                colors={["#ffbb87", "#ff6f83"]}
+                start={[1, 1]}
+                end={[0, 0]}
+              >
+                <Text
+                  style={{
+                    fontSize: 16,
+                    lineHeight: 20,
+                    color: "rgba(253, 253, 253, 1)"
+                  }}
+                >
+                  Get Tickets
+                </Text>
+                <Text
+                  style={{
+                    fontSize: 16,
+                    lineHeight: 20,
+                    color: "rgba(253, 253, 253, 1)"
+                  }}
+                >
+                  $10
+                </Text>
+              </LinearGradient>
+            </TouchableOpacity>
+          </View>
           <View style={styles.locationContainer}>
             <View style={{ flex: 3, paddingLeft: 32, paddingRight: 20, marginBottom: 16 }}>
               <Text

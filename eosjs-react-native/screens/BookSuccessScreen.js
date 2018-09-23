@@ -92,8 +92,8 @@ export default class HashSuccessScreen extends React.Component {
               alignItems: "center"
             }}
             colors={["#ffbb87", "#ff6f83"]}
-            start={[1, 1]}
-            end={[0, 0]}
+            start={{x:1, y:1}}
+            end={{x:0, y:0}}
           >
             <Icon.Ionicons/>
             <Text
