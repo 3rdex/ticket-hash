@@ -1,7 +1,9 @@
 #include <eosiolib/eosio.hpp>
 #include <eosiolib/print.hpp>
+#include <eosiolib/types.hpp>
 using namespace eosio;
 using std::string;
+using ::eosio::string_to_name;
 
 // Smart Contract Name: ticketchain
 // Table struct:
@@ -66,7 +68,7 @@ class ticketchain : public eosio::contract {
     using contract::contract;
 
     /// @abi action
-    void buyticket( uint64_t hash, string ticket_name, account_name seller ) {
+    void buyticket( string hash, string ticket_name, account_name seller ) {
       check_seller_exists(seller);
       tickettable obj(_self, seller);
       require_auth( seller );
@@ -74,19 +76,19 @@ class ticketchain : public eosio::contract {
       obj.emplace( seller, [&]( auto& address ) {
         address.prim_key    = obj.available_primary_key();
         address.ticket_name = ticket_name;
-        address.hash        = hash;
+        address.hash        = string_to_name(hash.c_str());
         address.purchase_at = now();
       });
     }
 
     /// @abi action
-    void check( uint64_t hash, account_name seller ) {
+    void check( string hash, account_name seller ) {
       check_seller_exists(seller);
       tickettable obj(_self, seller);
       require_auth( seller );
 
       auto tickets = obj.get_index<N(getbyhash)>();
-      auto itr = tickets.find(hash);
+      auto itr = tickets.find(string_to_name(hash.c_str()));
       eosio_assert(itr != tickets.end(), "Ticket not found.");
       tickets.modify( itr, seller, [&]( auto& address ) {
         address.used_at   = now();

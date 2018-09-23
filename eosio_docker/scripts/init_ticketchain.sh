@@ -19,9 +19,9 @@ cleos push action ticketticket revoke '["ticketsella1"]' -p ticketticket@active
 cleos get table ticketticket ticketticket sellers
 
 
-cleos push action ticketticket buyticket '[123123, "my ticket", "ticketsella1"]' -p ticketsella1@active
-cleos push action ticketticket buyticket '[1233333, "my ticket", "ticketsella1"]' -p ticketsella1@active
-cleos push action ticketticket check '[123123, "ticketsella1"]' -p ticketsella1@active
-cleos push action ticketticket check '[1233333, "ticketsella1"]' -p ticketsella1@active
+cleos push action ticketticket buyticket '["123412341", "my ticket", "ticketsella1"]' -p ticketsella1@active
+cleos push action ticketticket buyticket '["1233333", "my ticket", "ticketsella1"]' -p ticketsella1@active
+cleos push action ticketticket check '["123412341", "ticketsella1"]' -p ticketsella1@active
+cleos push action ticketticket check '["1233333", "ticketsella1"]' -p ticketsella1@active
 
 cleos get table ticketticket ticketsella1 tickets
