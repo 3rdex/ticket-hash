@@ -19,6 +19,7 @@ const styles = StyleSheet.create({
     shadowRadius: 1,
     shadowOpacity: 1,
     flexDirection: 'row',
+    overflow: 'hidden',
   }
 });
 
@@ -26,9 +27,14 @@ export default class TabBarIcon extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Image style={{
-          flex: 1,
-        }}/>
+        <Image
+          style={{
+            flex: 1,
+            width: 167,
+            height: 190
+          }}
+          source={require("../assets/images/event_1.png")}
+        />
         <View style={{ flex: 1, paddingLeft: 12, }}>
           <Text style={{
             marginTop: 18,
