@@ -140,7 +140,7 @@ export default class HomeScreen extends React.Component {
             />
             {/* TODO: replace background image */}
             <Image
-              source={require("../assets/images/robot-dev.png")}
+              source={require("../assets/images/event_details_header.png")}
               style={styles.welcomeImage}
             />
             <Icon.Ionicons
@@ -244,7 +244,7 @@ export default class HomeScreen extends React.Component {
               </Text>
             </View>
             <Image
-              source={require("../assets/images/robot-dev.png")}
+              source={require("../assets/images/map.png")}
               style={{ flex: 2, height: 204 }}
             />
           </View>

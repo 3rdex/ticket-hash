@@ -56,8 +56,8 @@ export default class HashSuccessScreen extends React.Component {
     return (
       <View style={styles.container}>
         <Image
-          style={{ height: 120, width: 120 }}
-          source={require("../assets/images/robot-dev.png")}
+          style={{ height: 160, width: 160 }}
+          source={require("../assets/images/confirmation.png")}
         />
         <Text
           style={{
@@ -111,7 +111,7 @@ export default class HashSuccessScreen extends React.Component {
             <Text
               style={{
                 fontSize: 16,
-                lineHeight: 24,
+                lineHeight: 16,
                 color: "rgb(253, 253, 253)"
               }}
             >

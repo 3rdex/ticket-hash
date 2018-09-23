@@ -24,25 +24,10 @@ const styles = StyleSheet.create({
     marginTop: 24
   },
   methodItem: {
-    height: 56,
+    position: "relative",
+    height: 80,
     marginLeft: 16,
-    marginRight: 16,
-    marginTop: 6,
-    marginBottom: 6,
-    borderRadius: 56,
-    backgroundColor: "white",
-    justifyContent: "space-between",
-    alignItems: "center",
-    borderRadius: 16,
-    shadowColor: "rgba(137, 157, 179, 0.25)",
-    shadowOffset: {
-      width: 0,
-      height: 24
-    },
-    shadowOpacity: 1,
-    shadowRadius: 16,
-    alignItems: "center",
-    justifyContent: "center"
+    marginRight: 16
   },
   bottomActions: {
     position: "absolute",
@@ -171,121 +156,109 @@ export default class HashInfoScreen extends React.Component {
             onPress={() => navigate("BookSuccess")}
             style={styles.methodItem}
           >
-            <View style={{ flexDirection: "row", alignItems: "center" }}>
-              <Text
-                style={{
-                  color: "rgba(2, 21, 40, 0.54)",
-                  marginRight: 8
-                }}
-              >
-                Stripe
-              </Text>
-              <Icon.Ionicons
-                name={"ios-arrow-forward"}
-                size={20}
-                color={"rgba(137, 157, 179, 0.25)"}
-              />
-              <Icon.Ionicons
-                name={"ios-arrow-forward"}
-                size={20}
-                color={"rgba(137, 157, 179, 0.25)"}
-              />
-              <Icon.Ionicons
-                name={"ios-arrow-forward"}
-                size={20}
-                color={"rgba(137, 157, 179, 0.25)"}
-              />
-            </View>
+            <Image
+              style={{
+                position: "absolute",
+                left: 0,
+                top: 0,
+                borderRadius: 16,
+                width: Layout.window.width - 32,
+                height: 80
+              }}
+              source={require("../assets/images/G0.png")}
+            />
+             <Text
+              style={{
+                fontSize: 18,
+                color: "rgba(2, 21, 40, 0.54)",
+                position: 'absolute',
+                right: 60,
+                top: 16
+              }}
+            >
+              Stripe
+            </Text>
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() => navigate("BookSuccess")}
             style={styles.methodItem}
           >
-            <View style={{ flexDirection: "row", alignItems: "center" }}>
-              <Text
-                style={{
-                  color: "rgba(2, 21, 40, 0.54)",
-                  marginRight: 8
-                }}
-              >
-                Stripe
-              </Text>
-              <Icon.Ionicons
-                name={"ios-arrow-forward"}
-                size={20}
-                color={"rgba(137, 157, 179, 0.25)"}
-              />
-              <Icon.Ionicons
-                name={"ios-arrow-forward"}
-                size={20}
-                color={"rgba(137, 157, 179, 0.25)"}
-              />
-              <Icon.Ionicons
-                name={"ios-arrow-forward"}
-                size={20}
-                color={"rgba(137, 157, 179, 0.25)"}
-              />
-            </View>
+            <Image
+              style={{
+                position: "absolute",
+                left: 0,
+                top: 0,
+                borderRadius: 16,
+                width: Layout.window.width - 32,
+                height: 80
+              }}
+              source={require("../assets/images/G1.png")}
+            />
+            <Text
+              style={{
+                fontSize: 18,
+                color: "rgba(2, 21, 40, 0.54)",
+                position: 'absolute',
+                right: 60,
+                top: 16
+              }}
+            >
+              Venmo
+            </Text>
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() => navigate("BookSuccess")}
             style={styles.methodItem}
           >
-            <View style={{ flexDirection: "row", alignItems: "center" }}>
-              <Text
-                style={{
-                  color: "rgba(2, 21, 40, 0.54)",
-                  marginRight: 8
-                }}
-              >
-                Stripe
-              </Text>
-              <Icon.Ionicons
-                name={"ios-arrow-forward"}
-                size={20}
-                color={"rgba(137, 157, 179, 0.25)"}
-              />
-              <Icon.Ionicons
-                name={"ios-arrow-forward"}
-                size={20}
-                color={"rgba(137, 157, 179, 0.25)"}
-              />
-              <Icon.Ionicons
-                name={"ios-arrow-forward"}
-                size={20}
-                color={"rgba(137, 157, 179, 0.25)"}
-              />
-            </View>
+            <Image
+              style={{
+                position: "absolute",
+                left: 0,
+                top: 0,
+                borderRadius: 16,
+                width: Layout.window.width - 32,
+                height: 80
+              }}
+              source={require("../assets/images/G2.png")}
+            />
+             <Text
+              style={{
+                fontSize: 18,
+                color: "rgba(2, 21, 40, 0.54)",
+                position: 'absolute',
+                right: 60,
+                top: 16
+              }}
+            >
+              Wechat
+            </Text>
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() => navigate("BookSuccess")}
             style={styles.methodItem}
           >
-            <View style={{ flexDirection: "row", alignItems: "center" }}>
-              <Text
-                style={{
-                  color: "rgba(2, 21, 40, 0.54)",
-                  marginRight: 8
-                }}
-              >
-                Stripe
-              </Text>
-              <Icon.Ionicons
-                name={"ios-arrow-forward"}
-                size={20}
-                color={"rgba(137, 157, 179, 0.25)"}
-              />
-              <Icon.Ionicons
-                name={"ios-arrow-forward"}
-                size={20}
-                color={"rgba(137, 157, 179, 0.25)"}
-              />
-              <Icon.Ionicons
-                name={"ios-arrow-forward"}
-                size={20}
-                color={"rgba(137, 157, 179, 0.25)"}
-              />
-            </View>
+            <Image
+              style={{
+                position: "absolute",
+                left: 0,
+                top: 0,
+                borderRadius: 16,
+                width: Layout.window.width - 32,
+                height: 80
+              }}
+              source={require("../assets/images/G3.png")}
+            />
+             <Text
+              style={{
+                fontSize: 18,
+                color: "rgba(2, 21, 40, 0.54)",
+                position: 'absolute',
+                right: 60,
+                top: 16
+              }}
+            >
+              Alipay
+            </Text>
           </TouchableOpacity>
         </View>
         <View style={styles.bottomActions}>
